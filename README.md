@@ -1,1 +1,1 @@
-For this project you need to install pygame with the command: pip install pygame
+This is a space game, because we like spacing
