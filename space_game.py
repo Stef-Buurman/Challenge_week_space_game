@@ -11,7 +11,7 @@ def intro(background):
         os.system('clear')
     elif os.name == 'nt':
         os.system('cls')
-    background.play()
+    # background.play()
     print("Welcome to the beautiful SpacerGame")
     player_name = input("Enter the name of you character: ")
     spaceship = Spaceship(player_name)
@@ -21,12 +21,12 @@ def intro(background):
     print(
         "Your task is to find information about space and return with everthing in one peace."
     )
-    Alarm = Sound("Media\Door.mp3", 7, False).play()
-    time.sleep(7)
+    # Sound("Media\Door.mp3", 7, False).play()
+    # time.sleep(7)
     return spaceship
 
 def startAdventure(spaceship):
-    print("\nTeam: aircraft is ready to launch.")
+    print("\n\033[92mTeam:\033[0m aircraft is ready to launch.")
     time.sleep(0.5)
     print("Let's get to business!")
     for i in sorted(list(range(1, 11)), reverse=True):

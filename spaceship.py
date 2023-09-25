@@ -18,6 +18,7 @@ class Spaceship:
     def RandomDamage(self):
         damage = random.randrange(0, 10)
         self.health -= damage
+        time.sleep(2)
         if damage == 0:
             print("\nYou are lucky this time, you had no damage from the attack.")
         elif self.health <= 0:
@@ -37,6 +38,7 @@ class Spaceship:
             self.health = 100
             self.inventory.remove("Repair kit")
             print("\nYou used your repair kit and are ready to go!")
+            time.sleep(2)
             self.DisplayStatus()
         else:
             print("You don't have a repair kit so you cannot repair your ship!")
