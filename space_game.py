@@ -12,7 +12,7 @@ def intro(background):
         f"\nWelcome {player_name}, you are the captain of the spaceship, so you are in charge."
     )
     print(
-        "Your task is to find information about space and return with everting in one peace."
+        "Your task is to find information about space and return with everthing in one peace."
     )
     # Alarm = Sound("Media\Alarm.mp3", 3, False).play()
     # time.sleep(10)
@@ -20,7 +20,8 @@ def intro(background):
 
 def startAdventure(spaceship):
     combat = Combat()
-    combat.inCombat(spaceship)
+    combat.inCombatPlanet(spaceship)
+
         
 
 background = Sound("Media\Background.mp3", 0, True)

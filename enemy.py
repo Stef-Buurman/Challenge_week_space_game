@@ -3,8 +3,11 @@ import random
 import string
 
 class Enemy:
-    def __init__(self):
-        self.health = random.randrange(5, 26, 5)
+    def __init__(self, ship):
+        if ship:
+            self.health = random.randrange(20, 66, 5)
+        else:
+            self.health = random.randrange(5, 26, 5)
 
     def getDamage(self, damageAmount):
         self.health -= damageAmount

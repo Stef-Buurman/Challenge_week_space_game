@@ -6,7 +6,8 @@ class Spaceship:
         self.userName = name
         self.fuel = 100
         self.health = 100
-        self.inventory = ["Repair kit"]
+        self.inventory = ["Repair kit", "Sword"]
+        self.score = 0
 
     def DisplayStatus(self):
         print(f"\n{self.userName}'s Status:")
