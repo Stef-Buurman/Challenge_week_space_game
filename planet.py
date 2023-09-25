@@ -62,6 +62,21 @@ class Planet:
     }
 ]
     
+    planet_activities = [
+    {
+        "name": "Exploration/observation",
+        "description": "Explore the planet and find new items for research."
+    },
+    {
+        "name": "Combat",
+        "description": "Engage combat with enemies and find items for research."
+    },
+    {
+        "name": "Spying",
+        "description": "Spy enemies and get intel for the operation."
+    },
+]   
+
     def select_planet(self):
         three_random_planets = random.sample(self.all_planets, 3)
 
@@ -90,9 +105,34 @@ class Planet:
             print(f"You have chosen to visit planet {three_random_planets[2]['name']}.")
             self.all_planets.remove(three_random_planets[2])
             return three_random_planets[2]['name']
+        
+    def choose_activity(self):
 
+        three_random_activities = random.sample(self.planet_activities, 3)
+
+        abc = ["A","B","C"]
+
+        input_string = f"\nWhat do you want to do in {self.name}?"
+            
+        for i, planet in enumerate(three_random_activities):
+            input_string += f"\n{abc[i]}: {planet['name']}: {planet['description']}"
+        
+        option = input(input_string + "\n").lower()
+        
+        time.sleep(2)
+
+        if option == "a":
+            print(f"You have chosen the following activity: {three_random_activities[0]['name']}")
+        
+        elif option == "b":
+            print(f"You have chosen the following activity: {three_random_activities[1]['name']}")
+            
+        elif option == "c":
+            print(f"You have chosen the following activity: {three_random_activities[2]['name']}")
+            
 # Test     
-planet = Planet()
-planet.name = planet.select_planet()
-planet.arrival()
-planet.departure()
+# planet = Planet()
+# planet.name = planet.select_planet()
+# planet.arrival()
+# planet.choose_activity()
+# planet.departure()
