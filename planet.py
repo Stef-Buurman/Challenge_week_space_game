@@ -64,7 +64,7 @@ class Planet:
     
     planet_activities = [
     {
-        "name": "Exploration/observation",
+        "name": "Exploration",
         "description": "Explore the planet and find new items for research."
     },
     {
@@ -75,6 +75,10 @@ class Planet:
         "name": "Spying",
         "description": "Spy enemies and get intel for the operation."
     },
+    {
+        "name": "Observation",
+        "description": "Seek interaction and observe the findings."
+    }
 ]   
 
     def select_planet(self):
@@ -88,31 +92,31 @@ class Planet:
             input_string += f"\n{abc[i]}: {planet['name']}: {planet['description']}"
         
         option = input(input_string + "\n").lower()
-        
+         
         time.sleep(2)
 
         if option == "a":
             print(f"You have chosen to visit planet {three_random_planets[0]['name']}.")
             self.all_planets.remove(three_random_planets[0])
-            return three_random_planets[0]['name']
+            self.name = three_random_planets[0]['name']
         
         elif option == "b":
             print(f"You have chosen to visit planet {three_random_planets[1]['name']}.")
             self.all_planets.remove(three_random_planets[1])
-            return three_random_planets[1]['name']
-        
+            self.name = three_random_planets[1]['name']
+           
         elif option == "c":
             print(f"You have chosen to visit planet {three_random_planets[2]['name']}.")
             self.all_planets.remove(three_random_planets[2])
-            return three_random_planets[2]['name']
-        
-    def choose_activity(self):
+            self.name = three_random_planets[2]['name']
+            
+    def select_activity_on_planet(self):
 
-        three_random_activities = random.sample(self.planet_activities, 3)
+        three_random_activities = random.sample(self.planet_activities, 4)
 
-        abc = ["A","B","C"]
+        abc = ["A","B","C","D"]
 
-        input_string = f"\nWhat do you want to do in {self.name}?"
+        input_string = f"\nWhat do you want to do on planet {self.name}?"
             
         for i, planet in enumerate(three_random_activities):
             input_string += f"\n{abc[i]}: {planet['name']}: {planet['description']}"
@@ -122,17 +126,17 @@ class Planet:
         time.sleep(2)
 
         if option == "a":
-            print(f"You have chosen the following activity: {three_random_activities[0]['name']}")
+            print(f"You have chosen to {three_random_activities[0]['description'].lower()}")
         
         elif option == "b":
-            print(f"You have chosen the following activity: {three_random_activities[1]['name']}")
-            
+            print(f"You have chosen to {three_random_activities[1]['description'].lower()}")
+
         elif option == "c":
-            print(f"You have chosen the following activity: {three_random_activities[2]['name']}")
-            
+            print(f"You have chosen to {three_random_activities[2]['description'].lower()}")
+
 # Test     
 # planet = Planet()
-# planet.name = planet.select_planet()
+# planet.select_planet()
 # planet.arrival()
-# planet.choose_activity()
+# planet.select_activity_on_planet()
 # planet.departure()
