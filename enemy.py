@@ -2,6 +2,7 @@ import sys
 import time
 import random
 import string
+from sound import Sound
 sys.path.append('Libraries\inputimeout')
 import inputimeout
 from inputimeout import inputimeout, TimeoutOccurred
@@ -19,6 +20,10 @@ class Enemy:
             print(f"The enemy has died following your excellent fighting skills.")
             return True
         else:
+            if random.randint(0, 7) % 2 == 1:
+                Sound("Media\DamageDone1.mp3", 2, False).play()
+            else:
+                Sound("Media\DamageDone2.mp3", 2, False).play()
             print(f"You did {damageAmount} damage to the enemy.")
             print(f"He still has {self.health} health left.")
             return False

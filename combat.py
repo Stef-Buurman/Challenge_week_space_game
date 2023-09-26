@@ -203,7 +203,7 @@ class Combat:
         time.sleep(5)
         enemiesDied = False
         while enemiesDied == False:
-            enemiesDied = self.attack()
+            enemiesDied = self.attackShips()
             if enemiesDied == True:
                 self.drop_rand_item(spaceship)
                 break
@@ -212,7 +212,7 @@ class Combat:
             time.sleep(2)
             
 
-    def attack(self):
+    def attackShips(self):
         attacks = random.sample(self.spaceAttacksShips, 3)
         alph = ["A", "B", "C"]
         inputString = "\nChoose your attack!:"
