@@ -46,7 +46,7 @@ def startAdventure(spaceship):
     time.sleep(5)
     planet.arrival()
     time.sleep(5)
-    planet.select_activity_on_planet()
+    planet.select_activity_on_planet(spaceship)
 
     # planet.departure()
 

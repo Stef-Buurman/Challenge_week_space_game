@@ -1,5 +1,6 @@
 import random
 import time
+from exploration import Exploration
 
 class Planet:       
     def __init__(self):
@@ -110,7 +111,7 @@ class Planet:
             self.all_planets.remove(three_random_planets[2])
             self.name = three_random_planets[2]['name']
             
-    def select_activity_on_planet(self):
+    def select_activity_on_planet(self, spaceship):
 
         abc = ["A","B","C","D"]
 
@@ -125,7 +126,12 @@ class Planet:
 
         if option == "a":
             print(f"You have chosen to {self.planet_activities[0]['description'].lower()}")
-            
+            explore = Exploration()
+            for i in range(5):
+                explore.exploration()
+                explore.research(spaceship)
+            spaceship.DisplayStatus()
+
         elif option == "b":
             print(f"You have chosen to {self.planet_activities[1]['description'].lower()}")
 
@@ -134,4 +140,4 @@ class Planet:
 
         elif option == "d":
             print(f"You have chosen to {self.planet_activities[3]['description'].lower()}")
-        
+
