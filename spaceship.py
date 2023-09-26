@@ -28,6 +28,7 @@ class Spaceship:
             print("\n\n\nYou died...")
             time.sleep(17)
         else:
+            Sound("Media\DamageGotten.mp3", 2, False).play()
             print(f"\nYou got {damage} of damage.")
         self.DisplayStatus()
     
