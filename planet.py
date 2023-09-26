@@ -1,6 +1,8 @@
 import random
 import time
 
+from combat import Combat
+
 class Planet:       
     def __init__(self):
         self.name = ""
@@ -110,7 +112,7 @@ class Planet:
             self.all_planets.remove(three_random_planets[2])
             self.name = three_random_planets[2]['name']
             
-    def select_activity_on_planet(self):
+    def select_activity_on_planet(self, spaceship):
 
         abc = ["A","B","C","D"]
 
@@ -128,7 +130,8 @@ class Planet:
             
         elif option == "b":
             print(f"You have chosen to {self.planet_activities[1]['description'].lower()}")
-
+            combat = Combat()
+            combat.inCombatPlanet(spaceship)
         elif option == "c":
             print(f"You have chosen to {self.planet_activities[2]['description'].lower()}")
 

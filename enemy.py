@@ -1,6 +1,10 @@
+import sys
 import time
 import random
 import string
+sys.path.append('Libraries\inputimeout')
+import inputimeout
+from inputimeout import inputimeout, TimeoutOccurred
 
 class Enemy:
     def __init__(self, ship):
@@ -20,6 +24,24 @@ class Enemy:
             return False
     
     def attack(self, spaceship):
-        # char = random.choice(string.ascii_letters + string.digits)
-        # inputChar = input(f"FAST, TYPE THE KEY {char.lower()}")
-        spaceship.RandomDamage()
+        char = random.choice(string.ascii_letters + string.digits)
+        inpString = f"\nFAST, type the key '{char.lower()}'!"
+        timeout = random.randrange(1, 4)
+        
+        try:
+            inp = inputimeout(prompt=inpString, timeout=timeout)
+            if char != inp:
+                inp = False
+                print("\nYou dodged right into the attack of the enemy!")
+                time.sleep(1)
+                spaceship.RandomDamage(True)
+        except TimeoutOccurred:
+            print("\nYou where too late to dodge the attack!")
+            inp = False
+            time.sleep(1)
+            spaceship.RandomDamage(True)
+        
+        if inp != False:
+            print("\nGood job, you dodged the attack and have no damage.")
+
+# Enemy(False).attack(Spaceship("henk"))

@@ -16,10 +16,10 @@ def intro(background):
     player_name = input("Enter the name of you character: ")
     spaceship = Spaceship(player_name)
     print(
-        f"\nWelcome {player_name}, you are the captain of the spaceship, so you are in charge."
+        f"\n\033[92mTeam:\033[0m Welcome {player_name}, you are the captain of the spaceship, so you are in charge."
     )
     print(
-        "Your task is to find information about space and return with everything in one peace."
+        "\033[92mTeam:\033[0m Your task is to find information about space and return with everything in one peace."
     )
     Sound("Media\Door.mp3", 7, False).play()
     time.sleep(7)
@@ -46,7 +46,7 @@ def startAdventure(spaceship):
     time.sleep(5)
     planet.arrival()
     time.sleep(5)
-    planet.select_activity_on_planet()
+    planet.select_activity_on_planet(spaceship)
 
     # planet.departure()
 
