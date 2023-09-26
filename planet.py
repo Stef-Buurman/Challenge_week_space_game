@@ -1,5 +1,6 @@
 import random
 import time
+from exploration import Exploration
 
 from combat import Combat
 
@@ -127,7 +128,12 @@ class Planet:
 
         if option == "a":
             print(f"You have chosen to {self.planet_activities[0]['description'].lower()}")
-            
+            explore = Exploration()
+            for i in range(5):
+                explore.exploration()
+                explore.research(spaceship)
+            spaceship.DisplayStatus()
+
         elif option == "b":
             print(f"You have chosen to {self.planet_activities[1]['description'].lower()}")
             combat = Combat()
@@ -137,4 +143,4 @@ class Planet:
 
         elif option == "d":
             print(f"You have chosen to {self.planet_activities[3]['description'].lower()}")
-        
+
