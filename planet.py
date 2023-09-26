@@ -112,13 +112,11 @@ class Planet:
             
     def select_activity_on_planet(self):
 
-        three_random_activities = random.sample(self.planet_activities, 4)
-
         abc = ["A","B","C","D"]
 
-        input_string = f"\nWhat do you want to do on planet {self.name}?"
+        input_string = f"\nWhat do you want to do on planet {self.name}:"
             
-        for i, planet in enumerate(three_random_activities):
+        for i, planet in enumerate(self.planet_activities):
             input_string += f"\n{abc[i]}: {planet['name']}: {planet['description']}"
         
         option = input(input_string + "\n").lower()
@@ -126,17 +124,14 @@ class Planet:
         time.sleep(2)
 
         if option == "a":
-            print(f"You have chosen to {three_random_activities[0]['description'].lower()}")
-        
+            print(f"You have chosen to {self.planet_activities[0]['description'].lower()}")
+            
         elif option == "b":
-            print(f"You have chosen to {three_random_activities[1]['description'].lower()}")
+            print(f"You have chosen to {self.planet_activities[1]['description'].lower()}")
 
         elif option == "c":
-            print(f"You have chosen to {three_random_activities[2]['description'].lower()}")
+            print(f"You have chosen to {self.planet_activities[2]['description'].lower()}")
 
-# Test     
-# planet = Planet()
-# planet.select_planet()
-# planet.arrival()
-# planet.select_activity_on_planet()
-# planet.departure()
+        elif option == "d":
+            print(f"You have chosen to {self.planet_activities[3]['description'].lower()}")
+        
