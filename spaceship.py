@@ -15,10 +15,12 @@ class Spaceship:
         print(f"Health: {self.health}")
         print("Inventory:", ", ".join(self.inventory))
 
-    def RandomDamage(self):
-        damage = random.randrange(0, 10)
+    def RandomDamage(self, notDodgable = False):
+        if notDodgable == True:
+            damage = random.randrange(1, 10)
+        else:
+            damage = random.randrange(0, 10)
         self.health -= damage
-        time.sleep(2)
         if damage == 0:
             print("\nYou are lucky this time, you had no damage from the attack.")
         elif self.health <= 0:
