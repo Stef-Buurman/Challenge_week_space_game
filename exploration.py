@@ -81,16 +81,16 @@ class Exploration:
         time.sleep(2)
 
         if option == "a":
-            print(f"You have decided to go to the {self.directions[0]['name']}.")
+            print(f"\nYou have decided to go to the {self.directions[0]['name']}.")
         
         elif option == "b":
-            print(f"You have decided to go to the {self.directions[1]['name']}.")
+            print(f"\nYou have decided to go to the {self.directions[1]['name']}.")
 
         elif option == "c":
-            print(f"You have decided to go to the {self.directions[2]['name']}.")
+            print(f"\nYou have decided to go to the {self.directions[2]['name']}.")
 
         elif option == "d":
-            print(f"You have decided to go to the {self.directions[3]['name']}.")
+            print(f"\nYou have decided to go to the {self.directions[3]['name']}.")
 
     def research(self, spaceship):
         time.sleep(3)
@@ -104,19 +104,23 @@ class Exploration:
             inp = input("Type 'a' to pick up the item: ").lower()
 
             if inp.lower() == "a":
+                time.sleep(3)
+
                 spaceship.inventory.append(found_item["name"])
                 spaceship.score += found_item["value"]
                 
                 print(
-                    f"\nThe following item had been added to your inventory: {found_item['name']}."
+                    f"\nThe following item has been added to your inventory: {found_item['name']}."
                 )
                 print(
-                    f"You score has been increased with {found_item['value']} to {spaceship.score}."
+                    f"Your score has been increased with {found_item['value']} to {spaceship.score}."
                 )
+                spaceship.DisplayStatus()
             else:
                 print(
                     f"\nUnfortunately you skipped the item worth: {found_item['value']} points."
                 )
         else:
-            print("You have found nothing. Try again.")
-            
+            print("\nYou have found nothing. Try again.")
+        
+        time.sleep(3)

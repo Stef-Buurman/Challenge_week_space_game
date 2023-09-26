@@ -1,10 +1,19 @@
 from sound import Sound
-from combat import Combat
 from spaceship import Spaceship
 from planet import Planet
 import time
 import os
 from loading import loading
+
+logo = """
+ ____  ____   _    ____ _____    ____    _    __  __ _____ 
+/ ___||  _ \ / \  / ___| ____|  / ___|  / \  |  \/  | ____|
+\___ \| |_) / _ \| |   |  _|   | |  _  / _ \ | |\/| |  _|  
+ ___) |  __/ ___ \ |___| |___  | |_| |/ ___ \| |  | | |___ 
+|____/|_| /_/   \_\____|_____|  \____/_/   \_\_|  |_|_____| v1.00
+"""
+
+info = "A spatial adventure game, created by Stef and Nick."
 
 def intro(background):
     if os.name == 'posix':
@@ -12,8 +21,10 @@ def intro(background):
     elif os.name == 'nt':
         os.system('cls')
     background.play()
-    print("Welcome to the beautiful SpacerGame")
-    player_name = input("Enter the name of you character: ")
+    print(logo)
+    print(info)
+    print("\nWelcome to our beautiful Space Game!")
+    player_name = input("Enter the name of your character: ")
     spaceship = Spaceship(player_name)
     print(
         f"\n\033[92mTeam:\033[0m Welcome {player_name}, you are the captain of the spaceship, so you are in charge."
@@ -26,9 +37,11 @@ def intro(background):
     return spaceship
 
 def startAdventure(spaceship):
-    print("\n\033[92mTeam:\033[0m aircraft is ready to launch.")
+    print("\033[92mTeam:\033[0m Aircraft is ready to launch.")
     time.sleep(0.5)
-    print("Let's get to business!")
+    print(
+        "\033[92mTeam:\033[0m Let's get to business!"
+    )
     Sound("Media\countdown.mp3", 10, False).play()
     time.sleep(1.5)
     for i in sorted(list(range(1, 11)), reverse=True):

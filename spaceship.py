@@ -1,6 +1,7 @@
 from sound import Sound
 import random
 import time
+
 class Spaceship:
     def __init__(self, name):
         self.userName = name
@@ -11,8 +12,9 @@ class Spaceship:
 
     def DisplayStatus(self):
         print(f"\n{self.userName}'s Status:")
-        print(f"Fuel: {self.fuel}")
         print(f"Health: {self.health}")
+        print(f"Fuel: {self.fuel}")
+        print(f"Score: {self.score}")
         print("Inventory:", ", ".join(self.inventory))
 
     def RandomDamage(self, notDodgable = False):
@@ -22,18 +24,18 @@ class Spaceship:
             damage = random.randrange(0, 10)
         self.health -= damage
         if damage == 0:
-            print("\nYou are lucky this time, you had no damage from the attack.")
+            print("\nYou are lucky this time, you had no damage from the enemy attack.")
         elif self.health <= 0:
             Sound("Media\GameOver.mp3", 17, False).play()
             print("\n\n\nYou died...")
             time.sleep(17)
         else:
-            print(f"\nYou got {damage} of damage.")
+            print(f"\nYou got {damage} damage from the enemy attack.")
         self.DisplayStatus()
     
     def Repair(self):
         if self.health == 100:
-            print("\nYou're ship is already in the best state, you cannot use any repair kit.")
+            print("\nYour ship is already in the best state, you cannot use a repair kit.")
         elif "Repair kit" in self.inventory:
             print("\nYou are using your repair kit...")
             time.sleep(2)
