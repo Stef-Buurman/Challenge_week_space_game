@@ -2,6 +2,7 @@ import random
 import time
 from exploration import Exploration
 from combat import Combat
+from observation import Observation
 
 class Planet:       
     def __init__(self):
@@ -163,6 +164,8 @@ class Planet:
 
         elif option == "d":
             print(f"\nYou have chosen to {self.planet_activities[3]['description'].lower()}")
+            observation = Observation()
+            observation.observation(spaceship, self.name)
 
         elif option == "e" and self.counter > 3:
             print(f"\nYou have chosen to go back to the spaceship and go to another planet.")
