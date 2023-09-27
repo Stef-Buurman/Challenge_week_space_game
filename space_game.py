@@ -41,7 +41,7 @@ def intro(background):
     time.sleep(7)
     return spaceship
 
-def startAdventure(spaceship):
+def startAdventure(spaceship, background):
     print("\033[92mTeam:\033[0m Aircraft is ready to launch.")
     time.sleep(0.5)
     print(
