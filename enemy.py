@@ -32,7 +32,7 @@ class Enemy:
     
     def attack(self, spaceship):
         char = random.choice(string.ascii_letters + string.digits)
-        inpString = f"\nFAST, type the key '{char.lower()}'!"
+        inpString = f"\nFAST, type '{char.lower()}'"
         timeout = random.randrange(1, 4)
         
         try:
@@ -43,12 +43,10 @@ class Enemy:
                 time.sleep(1)
                 spaceship.RandomDamage(True)
         except TimeoutOccurred:
-            print("\nYou where too late to dodge the attack!")
+            print("\nYou were too late to dodge the attack!")
             inp = False
             time.sleep(1)
             spaceship.RandomDamage(True)
         
         if inp != False:
             print("\nGood job, you dodged the attack and have no damage.")
-
-# Enemy(False).attack(Spaceship("henk"))

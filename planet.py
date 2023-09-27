@@ -1,7 +1,6 @@
 import random
 import time
 from exploration import Exploration
-
 from combat import Combat
 
 class Planet:       
@@ -99,17 +98,17 @@ class Planet:
         time.sleep(2)
 
         if option == "a":
-            print(f"You have chosen to visit planet {three_random_planets[0]['name']}.")
+            print(f"\nYou have chosen to visit planet {three_random_planets[0]['name']}.")
             self.all_planets.remove(three_random_planets[0])
             self.name = three_random_planets[0]['name']
         
         elif option == "b":
-            print(f"You have chosen to visit planet {three_random_planets[1]['name']}.")
+            print(f"\nYou have chosen to visit planet {three_random_planets[1]['name']}.")
             self.all_planets.remove(three_random_planets[1])
             self.name = three_random_planets[1]['name']
            
         elif option == "c":
-            print(f"You have chosen to visit planet {three_random_planets[2]['name']}.")
+            print(f"\nYou have chosen to visit planet {three_random_planets[2]['name']}.")
             self.all_planets.remove(three_random_planets[2])
             self.name = three_random_planets[2]['name']
             
@@ -127,20 +126,19 @@ class Planet:
         time.sleep(2)
 
         if option == "a":
-            print(f"You have chosen to {self.planet_activities[0]['description'].lower()}")
+            print(f"\nYou have chosen to {self.planet_activities[0]['description'].lower()}")
             explore = Exploration()
             for i in range(5):
                 explore.exploration()
                 explore.research(spaceship)
-            spaceship.DisplayStatus()
 
         elif option == "b":
-            print(f"You have chosen to {self.planet_activities[1]['description'].lower()}")
+            print(f"\nYou have chosen to {self.planet_activities[1]['description'].lower()}")
             combat = Combat()
             combat.inCombatPlanet(spaceship)
         elif option == "c":
-            print(f"You have chosen to {self.planet_activities[2]['description'].lower()}")
+            print(f"\nYou have chosen to {self.planet_activities[2]['description'].lower()}")
 
         elif option == "d":
-            print(f"You have chosen to {self.planet_activities[3]['description'].lower()}")
+            print(f"\nYou have chosen to {self.planet_activities[3]['description'].lower()}")
 

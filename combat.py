@@ -184,18 +184,18 @@ class Combat:
         rand = random.randint(0, 6)
         if rand == 0:
             print(
-                "\nYou engage a spaceship which doesn't seem to be intrested in combat."
+                "\nYou encounter a spaceship which doesn't seem to be interested in combat."
             )
             print("The spaceship flees and cannot be stopped.")
             time.sleep(2)
             return
         elif rand == 1 or rand == 4 or rand == 6:
             print(
-                "\nThe spaceships is aware of your existence but does not see you as treath."
+                "\nThe spaceship is aware of your existence but does not see you as a threat."
             )
         else:
             print(
-                "\nThe spaceships is aware of your existence and instantly decide to start the combat."
+                "\nThe spaceship is aware of your existence and instantly decides to start the attack."
             )
             time.sleep(3)
             self.enemy.attack(spaceship)
@@ -243,7 +243,7 @@ class Combat:
             )
         else:
             print(
-                "\nThe aliens see you approaching and see you as treath they decide to start the attack."
+                "\nThe aliens see you approaching as threat and decide to start the attack."
             )
             time.sleep(3)
             self.enemy.attack(spaceship)
@@ -282,16 +282,19 @@ class Combat:
             time.sleep(3)
             dropped_item = random.choice(self.alienItems)
             print(f"\nThe alien dropped the following item: {dropped_item['name']}.")
-            inp = input("Type a to pick up the item: ")
+            inp = input("Type 'a' to pick up the item: ")
             if inp.lower() == "a":
+                time.sleep(3)
+
                 spaceship.inventory.append(dropped_item["name"])
                 spaceship.score += dropped_item["value"]
                 print(
-                    f"\nThe following item had been added to your inventory: {dropped_item['name']}."
+                    f"\nThe following item has been added to your inventory: {dropped_item['name']}."
                 )
                 print(
-                    f"You score has been increased with {dropped_item['value']} to {spaceship.score}."
+                    f"Your score has been increased with {dropped_item['value']} to {spaceship.score}."
                 )
+                spaceship.DisplayStatus()
             else:
                 print(
                     f"\nUnfortunately you skipped the item worth: {dropped_item['value']} points."
