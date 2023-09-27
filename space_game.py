@@ -53,20 +53,30 @@ def startAdventure(spaceship, background):
         print("\033[92mTeam:\033[0m " + str(i))
         time.sleep(1)
     print("LAUNCH!!!")
+    spaceship.in_space = True
     Sound("Media\Launch.mp3", 5, False).play()
     time.sleep(5)
-    planet = Planet()
-    planet.select_planet()
+    
+    planet = Planet() 
+    
+    while spaceship.in_space == True:
+        planet.select_planet(spaceship)
 
+        if spaceship.in_space == True:
+            loading(5)
+            Sound("Media\Meteor.mp3", 8, False).play()
+            time.sleep(8)
+            planet.arrival()
+            time.sleep(5)
+    
+        while planet.on_planet == True:
+            planet.select_activity_on_planet(spaceship)
+
+    planet.departure()
     loading(5)
-
     Sound("Media\Meteor.mp3", 8, False).play()
     time.sleep(8)
     planet.arrival()
-    time.sleep(5)
-    planet.select_activity_on_planet(spaceship)
-
-    planet.departure()
     
     end(spaceship, background)
 
@@ -90,7 +100,7 @@ def end(spaceship, background):
     print(f"Your score: {spaceship.score}")
     print(f"Your findings: {', '.join(spaceship.inventory)}")
     try:
-        inputimeout(prompt="\n\n\nEnter any key to exit", timeout=216)
+        inputimeout(prompt="\n\n\nEnter any key to exit: ", timeout=216)
     except TimeoutOccurred:
         print("")
 

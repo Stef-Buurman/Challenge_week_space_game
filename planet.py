@@ -6,12 +6,15 @@ from combat import Combat
 class Planet:       
     def __init__(self):
         self.name = ""
+        self.on_planet = False
+        self.counter = 0
         
     def arrival(self):
         print(f"\nYou have arrived on planet {self.name}.")
 
     def departure(self):
         print(f"\nYou are leaving planet {self.name}.")
+        self.name = "Earth"
 
     all_planets = [
     {
@@ -83,7 +86,7 @@ class Planet:
     }
 ]   
 
-    def select_planet(self):
+    def select_planet(self, spaceship):
         three_random_planets = random.sample(self.all_planets, 3)
 
         abc = ["A","B","C"]
@@ -93,6 +96,11 @@ class Planet:
         for i, planet in enumerate(three_random_planets):
             input_string += f"\n{abc[i]}: {planet['name']}: {planet['description']}"
         
+        if spaceship.counter > 3:
+            input_string += f"\nD: Earth: Go back to planet earth and complete the mission."
+
+        spaceship.counter = spaceship.counter + 1
+        
         option = input(input_string + "\n").lower()
          
         time.sleep(2)
@@ -101,16 +109,26 @@ class Planet:
             print(f"\nYou have chosen to visit planet {three_random_planets[0]['name']}.")
             self.all_planets.remove(three_random_planets[0])
             self.name = three_random_planets[0]['name']
+            self.on_planet = True
+            self.counter = 0
         
         elif option == "b":
             print(f"\nYou have chosen to visit planet {three_random_planets[1]['name']}.")
             self.all_planets.remove(three_random_planets[1])
             self.name = three_random_planets[1]['name']
+            self.on_planet = True
+            self.counter = 0
            
         elif option == "c":
             print(f"\nYou have chosen to visit planet {three_random_planets[2]['name']}.")
             self.all_planets.remove(three_random_planets[2])
             self.name = three_random_planets[2]['name']
+            self.on_planet = True
+            self.counter = 0
+
+        elif option == "d" and spaceship.counter > 3:
+            print(f"\nYou have chosen to go back to planet earth and complete the mission.")
+            spaceship.in_space = False
             
     def select_activity_on_planet(self, spaceship):
 
@@ -121,6 +139,11 @@ class Planet:
         for i, planet in enumerate(self.planet_activities):
             input_string += f"\n{abc[i]}: {planet['name']}: {planet['description']}"
         
+        if self.counter > 3:
+            input_string += f"\nE: Return to spaceship: Go back to the spaceship and go to another planet."
+
+        self.counter = self.counter + 1
+
         option = input(input_string + "\n").lower()
         
         time.sleep(2)
@@ -128,9 +151,8 @@ class Planet:
         if option == "a":
             print(f"\nYou have chosen to {self.planet_activities[0]['description'].lower()}")
             explore = Exploration()
-            for i in range(5):
-                explore.exploration()
-                explore.research(spaceship)
+            explore.exploration()
+            explore.research(spaceship)
 
         elif option == "b":
             print(f"\nYou have chosen to {self.planet_activities[1]['description'].lower()}")
@@ -142,3 +164,6 @@ class Planet:
         elif option == "d":
             print(f"\nYou have chosen to {self.planet_activities[3]['description'].lower()}")
 
+        elif option == "e" and self.counter > 3:
+            print(f"\nYou have chosen to go back to the spaceship and go to another planet.")
+            self.on_planet = False
