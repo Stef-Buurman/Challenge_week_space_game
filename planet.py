@@ -3,6 +3,7 @@ import time
 from exploration import Exploration
 from combat import Combat
 from observation import Observation
+from spying import Spying
 
 class Planet:       
     def __init__(self):
@@ -162,8 +163,12 @@ class Planet:
             print(f"\nYou have chosen to {self.planet_activities[1]['description'].lower()}")
             combat = Combat()
             combat.inCombatPlanet(spaceship)
+
         elif option == "c":
             print(f"\nYou have chosen to {self.planet_activities[2]['description'].lower()}")
+            my_spy = Spying(self.name)
+            my_spy.spy()
+            my_spy.report_findings(spaceship)
 
         elif option == "d":
             print(f"\nYou have chosen to {self.planet_activities[3]['description'].lower()}")
