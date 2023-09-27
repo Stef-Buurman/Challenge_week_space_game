@@ -1,6 +1,7 @@
 import time
 import random
 from enemy import Enemy
+from items import alien_items
 
 
 class Combat:
@@ -56,31 +57,26 @@ class Combat:
             "name": "Slash",
             "damage": 5,
             "description": "Perform a swift and powerful slash with your sword.",
-            "items": "Sword",
         },
         {
             "name": "Thrust",
             "damage": 10,
             "description": "Thrust your sword forward to pierce the enemy's defenses.",
-            "items": "Sword",
         },
         {
             "name": "Spin Attack",
             "damage": 15,
             "description": "Execute a spinning attack, striking multiple foes in your path.",
-            "items": "Sword",
         },
         {
             "name": "Counter Strike",
             "damage": 10,
             "description": "Defend against an enemy's attack and counter with a devastating strike.",
-            "items": "Sword",
         },
         {
             "name": "Power Strike",
             "damage": 25,
             "description": "Charge up your sword for a powerful, high-damage strike.",
-            "items": "Sword",
         },
         {
             "name": "Punch",
@@ -109,77 +105,6 @@ class Combat:
         },
     ]
 
-    alienItems = [
-        {
-            "name": "Glowing Crystal",
-            "value": 50,
-        },
-        {
-            "name": "Extraterrestrial Artifact",
-            "value": 100,
-        },
-        {
-            "name": "Alien Flora Sample",
-            "value": 30,
-        },
-        {
-            "name": "Void Gem",
-            "value": 200,
-        },
-        {
-            "name": "Bioluminescent Organism",
-            "value": 80,
-        },
-        {
-            "name": "Plasma Crystal Shard",
-            "value": 75,
-        },
-        {
-            "name": "Xenophyte Fossil",
-            "value": 45,
-        },
-        {
-            "name": "Cosmic Relic",
-            "value": 150,
-        },
-        {
-            "name": "Electrostatic Resonator",
-            "value": 90,
-        },
-        {
-            "name": "Quantum Crystalline Shard",
-            "value": 120,
-        },
-        {
-            "name": "Alien Data Cube",
-            "value": 250,
-        },
-        {
-            "name": "Levitating Orb",
-            "value": 180,
-        },
-        {
-            "name": "Nebula Gem",
-            "value": 300,
-        },
-        {
-            "name": "Holographic Reliquary",
-            "value": 220,
-        },
-        {
-            "name": "Quantum Gauntlet",
-            "value": 400,
-        },
-        {
-            "name": "Stellar Compass",
-            "value": 160,
-        },
-        {
-            "name": "Crystalline Energy Core",
-            "value": 500,
-        },
-    ]
-
     def inCombatShips(self, spaceship):
         rand = random.randint(0, 6)
         if rand == 0:
@@ -199,7 +124,7 @@ class Combat:
             )
             time.sleep(3)
             self.enemy.attack(spaceship)
-        
+
         time.sleep(5)
         enemiesDied = False
         while enemiesDied == False:
@@ -210,7 +135,6 @@ class Combat:
             time.sleep(1)
             self.enemyShip.attack(spaceship)
             time.sleep(2)
-            
 
     def attackShips(self):
         attacks = random.sample(self.spaceAttacksShips, 3)
@@ -280,8 +204,9 @@ class Combat:
     def drop_rand_item(self, spaceship):
         if random.randint(0, 5) % 2 == 1:
             time.sleep(3)
-            dropped_item = random.choice(self.alienItems)
+            dropped_item = random.choice(alien_items)
             print(f"\nThe alien dropped the following item: {dropped_item['name']}.")
+            alien_items.remove(dropped_item)
             inp = input("Type 'a' to pick up the item: ")
             if inp.lower() == "a":
                 time.sleep(3)

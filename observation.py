@@ -17,7 +17,11 @@ class Observation:
         },
         {
             "name": "Admire caves",
-            "description": "Admire the cave systems on the planet and find information about any other creatures.",
+            "description": "Admire the cave systems on the planet and find information about any other creatures and the planet.",
+        },
+        {
+            "name": "Admire surroundings",
+            "description": "Admire your surroundings on the planet and find information about any other creatures and the planet.",
         },
     ]
 
@@ -44,12 +48,12 @@ class Observation:
     ]
 
     def observation(self, spaceship, planet):
-        abc = ["A", "B", "C"]
+        abc = ["A", "B", "C", "D"]
 
-        input_string = f"\nWhat direction do you want to go:"
+        input_string = f"\nWhat do you want to observate?:"
 
-        for i, direction in enumerate(self.observation_options):
-            input_string += f"\n{abc[i]}: {direction['name']}"
+        for i, option in enumerate(self.observation_options):
+            input_string += f"\n{abc[i]}: {option['name']}: {option['description']}"
 
         option = input(input_string + "\n").lower()
 
@@ -67,6 +71,10 @@ class Observation:
             print(f"\nYou have decided to {self.observation_options[2]['name']}.")
             time.sleep(1)
             self.admire_caves(spaceship, planet)
+        elif option == "d":
+            print(f"\nYou have decided to {self.observation_options[3]['name']}.")
+            time.sleep(1)
+            self.admire_surroundings(spaceship, planet)
 
     def interactionChoise(self, spaceship):
         number = random.randint(0, 2)
@@ -291,11 +299,11 @@ class Observation:
         self.interactionItem(spaceship, "Xanar")
 
     def interactionItem(self, spaceship, alienName):
-        print(f"\nYou are documenting the information gotten from {alienName}")
+        print(f"\nYou are documenting the information gotten from {alienName}.")
         loading(5)
-        print(f"\nAdded to inventory: Alien documentation")
+        print(f"\nAdded to inventory: Alien documentation.")
         spaceship.score += random.randrange(0, 150, 10)
-        spaceship.inventory.append(f"Alien documentation")
+        spaceship.inventory.append(f"Alien documentation.")
         number = random.randint(0, 3)
         if number == 2:
             time.sleep(2)
@@ -305,6 +313,7 @@ class Observation:
 
         time.sleep(2)
         spaceship.DisplayStatus()
+        time.sleep(4)
 
     def inspect(self, spaceship, planet):
         print(f"\nYou are inspecting the place you currently are on {planet}")
@@ -316,6 +325,7 @@ class Observation:
         spaceship.inventory.append(f"{planet} documentation")
         time.sleep(2)
         spaceship.DisplayStatus()
+        time.sleep(4)
 
     def admire_caves(self, spaceship, planet):
         print(f"\nYou are admiring the caves found on {planet}")
@@ -346,3 +356,35 @@ class Observation:
             spaceship.inventory.append(f"{planet} documentation")
         time.sleep(2)
         spaceship.DisplayStatus()
+        time.sleep(4)
+    
+    def admire_surroundings(self, spaceship, planet):
+        print(f"\nYou are admiring your surroundings on {planet}")
+        loading(10)
+        time.sleep(1)
+        number = random.randint(0, 5)
+        if number == 1:
+            creature_name = random.choice(self.space_creatures)
+            print(f"\nYou found a creature named {creature_name}")
+        elif number == 4:
+            print("You found a creature without a name.")
+            creature_name = input("How would you name the creature?: ")
+
+        if number == 1 or number == 4:
+            time.sleep(2)
+            input(f"\nType your documentation of planet: {planet} and creature: {creature_name}: ")
+            time.sleep(2)
+            print(f"\nAdded to inventory: {planet} documentation, {creature_name} documentation")
+            spaceship.score += random.randrange(10, 150, 10)
+            spaceship.inventory.append(f"{planet} documentation")
+            spaceship.inventory.append(f"{creature_name} documentation")
+        else:
+            time.sleep(2)
+            input(f"\nType your documentation of planet: {planet}: ")
+            time.sleep(2)
+            print(f"\nAdded to inventory: {planet} documentation")
+            spaceship.score += random.randrange(10, 150, 10)
+            spaceship.inventory.append(f"{planet} documentation")
+        time.sleep(2)
+        spaceship.DisplayStatus()
+        time.sleep(4)
