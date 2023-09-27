@@ -13,7 +13,7 @@ class Spaceship:
         print(f"\n{self.userName}'s Status:")
         print(f"Fuel: {self.fuel}")
         print(f"Health: {self.health}")
-        print("Inventory:", ", ".join(self.inventory))
+        print(f"Inventory:{', '.join(self.inventory)}")
 
     def RandomDamage(self, notDodgable = False):
         if notDodgable == True:
@@ -30,6 +30,7 @@ class Spaceship:
         else:
             Sound("Media\DamageGotten.mp3", 2, False).play()
             print(f"\nYou got {damage} of damage.")
+        time.sleep(2)
         self.DisplayStatus()
     
     def Repair(self):

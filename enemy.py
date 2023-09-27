@@ -17,6 +17,8 @@ class Enemy:
     def getDamage(self, damageAmount):
         self.health -= damageAmount
         if self.health <= 0:
+            Sound("Media\EnemyDied.mp3", 2, False).play()
+            time.sleep(1)
             print(f"The enemy has died following your excellent fighting skills.")
             return True
         else:
