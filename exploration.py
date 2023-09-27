@@ -1,5 +1,6 @@
 import random
 import time
+from items import alien_items
 
 class Exploration:
     directions = [
@@ -16,56 +17,7 @@ class Exploration:
         "name": "West"
     }
 ]
-    items = [
-    {
-        "name": "Anti-Gravity Crystals", 
-        "value": 42
-    },
-    {   
-        "name": "Telepathic Plants", 
-        "value": 17
-    },
-    {   
-        "name": "Time-Warping Ores", 
-        "value": 98
-    },
-    {   
-        "name": "Cosmic Energy Stones", 
-        "value": 73
-    },
-    {   
-        "name": "Invisible Creatures", 
-        "value": 55
-    },
-    {   
-        "name": "Quantum Fog", 
-        "value": 34
-    },
-    {   
-        "name": "Bioluminescent Rivers", 
-        "value": 61
-    },
-    {   
-        "name": "Gravity-Defying Waterfalls", 
-        "value": 29
-    },
-    {   
-        "name": "Interdimensional Portals", 
-        "value": 88
-    },
-    {   
-        "name": "Mind-Reading Rocks", 
-        "value": 12
-    },
-    {   
-        "name": "Starfire Gemstones", 
-        "value": 77
-    },
-    {
-        "name": "Crystalized Dreams", 
-        "value": 63
-    }
-]
+
 
     def exploration(self):
 
@@ -98,9 +50,9 @@ class Exploration:
         number = random.randint(0, 2)
         
         if number == 1:
-            found_item = random.choice(self.items)
+            found_item = random.choice(alien_items)
             print(f"\nYou found the following item: {found_item['name']}.")
-
+            alien_items.remove(found_item)
             inp = input("Type 'a' to pick up the item: ").lower()
 
             if inp.lower() == "a":
