@@ -1,11 +1,8 @@
 import random
 import time
-
 from loading import loading
 
-
 class Observation:
-    # def __init__(self):
     observation_options = [
         {
             "name": "Interaction",
