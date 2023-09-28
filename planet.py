@@ -117,7 +117,7 @@ class Planet:
 
         abc = ["A","B","C"]
 
-        input_string = "Choose your planet to visit:"
+        input_string = "\nChoose your planet to visit:"
             
         for i, planet in enumerate(three_random_planets):
             input_string += f"\n{abc[i]}: {planet['name']}: {planet['description']}"
