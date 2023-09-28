@@ -106,8 +106,63 @@ def end(spaceship, background):
     for i in sorted(list(range(1, 11))):
         print("\n")
         time.sleep(1)
-    print(f"Your score: {spaceship.score}")
-    print(f"Your findings: {', '.join(spaceship.inventory)}")
+
+    mission_passed1 = """ 
+ __  __ ___ ____ ____ ___ ___  _   _   ____   _    ____ ____  _____ ____ """
+
+    mission_passed2 = """
+|  \/  |_ _/ ___/ ___|_ _/ _ \| \ | | |  _ \ / \  / ___/ ___|| ____|  _ \ """
+
+    mission_passed3 = """
+| |\/| || |\___ \___ \| | | | |  \| | | |_) / _ \ \___ \___ \|  _| | | | | """
+
+    mission_passed4 = """
+| |  | || | ___) |__) | | |_| | |\  | |  __/ ___ \ ___) |__) | |___| |_| | """
+
+    mission_passed5 = """
+|_|  |_|___|____/____/___\___/|_| \_| |_| /_/   \_\____/____/|_____|____/ """
+        
+        
+    mission_failed1 = """
+ __  __ ___ ____ ____ ___ ___  _   _   _____ _    ___ _     _____ ____ """
+
+    mission_failed2 = """
+|  \/  |_ _/ ___/ ___|_ _/ _ \| \ | | |  ___/ \  |_ _| |   | ____|  _ \ """
+
+    mission_failed3 = """
+| |\/| || |\___ \___ \| | | | |  \| | | |_ / _ \  | || |   |  _| | | | | """
+
+    mission_failed4 = """
+| |  | || | ___) |__) | | |_| | |\  | |  _/ ___ \ | || |___| |___| |_| | """
+
+    mission_failed5 = """
+|_|  |_|___|____/____/___\___/|_| \_| |_|/_/   \_\___|_____|_____|____/ """
+
+    if spaceship.score >= 1000:
+        print(mission_passed1, end="")
+        time.sleep(1)
+        print(mission_passed2, end="")
+        time.sleep(1)
+        print(mission_passed3, end="")
+        time.sleep(1)
+        print(mission_passed4, end="")
+        time.sleep(1)
+        print(mission_passed5, end="")
+        time.sleep(1)
+    else:
+        print(mission_failed1, end="")
+        time.sleep(1)
+        print(mission_failed2, end="")
+        time.sleep(1)
+        print(mission_failed3, end="")
+        time.sleep(1)
+        print(mission_failed4, end="")
+        time.sleep(1)
+        print(mission_failed5, end="")
+        time.sleep(1)
+
+    print(f"\n\nYour score: {spaceship.score}")
+    print(f"\nYour findings: {', '.join(spaceship.inventory)}")
     try:
         inputimeout(prompt="\n\n\nEnter any key to exit: ", timeout=216)
     except TimeoutOccurred:
