@@ -22,6 +22,7 @@ class Enemy:
             Sound("Media\EnemyDied.mp3", 2, False).play()
             time.sleep(1)
             print(f"The enemy has died following your excellent fighting skills.")
+            time.sleep(3)
             return True
         else:
             if random.randint(0, 7) % 2 == 1:
@@ -54,3 +55,8 @@ class Enemy:
 
         if inp != False:
             print("\nGood job, you dodged the attack and have no damage.")
+
+        try:
+            inp = inputimeout(prompt="", timeout=1)
+        except TimeoutOccurred:
+            inp = inp
