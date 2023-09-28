@@ -158,7 +158,7 @@ class Planet:
         
         else:
             spaceship.counter -= 1
-            print("\nThis is not an option")
+            print("\nThis is not an option!")
             self.select_planet(spaceship)
             
     def select_activity_on_planet(self, spaceship):
@@ -242,5 +242,5 @@ class Planet:
         
         else:
             self.counter -= 1
-            print("\nThis is not an option")
+            print("\nThis is not an option!")
             self.select_activity_on_planet(spaceship)

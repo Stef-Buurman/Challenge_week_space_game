@@ -35,6 +35,10 @@ class Exploration:
         elif option == "d":
             print(f"\nYou have decided to go to the {self.directions[3]['name']}.")
 
+        else:
+            print("\nThis is not an option!")
+            self.exploration()
+
     def research(self, spaceship):
         time.sleep(3)
 

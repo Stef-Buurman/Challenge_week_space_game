@@ -180,7 +180,7 @@ class Spying:
         time.sleep(2)
 
         if f"{self.location} spying documentation" not in spaceship.inventory:
-            print(f"\nAdded to inventory: {self.location} spying documentation")
+            print(f"\nAdded to inventory: {self.location} spying documentation.")
             spaceship.inventory.append(f"{self.location} spying documentation")
         else:
             print(f"\nAdded findings to existing {self.location} spying documentation.")

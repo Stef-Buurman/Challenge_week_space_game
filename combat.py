@@ -121,8 +121,9 @@ class Combat:
             answer = ""
             while answer != "b" and answer != "a":
                 answer = input("Do you want to attack the spaceship? \nA: Yes\nB: No \n").lower()
-                if answer == "b":
+                if answer != "a":
                     return
+            
             time.sleep(2)
         else:
             print(
@@ -163,6 +164,7 @@ class Combat:
             time.sleep(1)
             return self.enemyShip.getDamage(attacks[2]["damage"])
         else:
+            print("\nYou lost your opportunity to attack!")
             return False
 
     def inCombatPlanet(self, spaceship):
@@ -216,6 +218,7 @@ class Combat:
             time.sleep(1)
             return self.enemy.getDamage(attacks[2]["damage"])
         else:
+            print("\nYou lost your opportunity to attack!")
             return False
 
     def drop_rand_item(self, spaceship, isShip = False):

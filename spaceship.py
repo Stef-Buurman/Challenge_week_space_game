@@ -6,8 +6,8 @@ import time
 class Spaceship:
     def __init__(self, name):
         self.userName = name
-        self.fuel = 30
-        self.health = 10
+        self.fuel = 100
+        self.health = 100
         self.inventory = ["Repair kit", "Fuel can", "Sword"]
         self.score = 0
         self.in_space = False

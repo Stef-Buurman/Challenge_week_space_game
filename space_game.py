@@ -32,6 +32,8 @@ def intro(background):
     print(info)
     print("\nWelcome to our beautiful Space Game!")
     player_name = input("Enter the name of your character: ")
+    if player_name == "" or player_name.isspace():
+        player_name = "Player-1234"
     spaceship = Spaceship(player_name)
     print(
         f"\n\033[92mTeam:\033[0m Welcome {player_name}, you are the captain of the spaceship, so you are in charge."
@@ -39,8 +41,8 @@ def intro(background):
     print(
         "\033[92mTeam:\033[0m Your task is to find information about space and return with everything in one peace."
     )
-    Sound("Media\Door.mp3", 7, False).play()
-    time.sleep(9)
+    # Sound("Media\Door.mp3", 7, False).play()
+    # time.sleep(9)
     return spaceship
 
 
@@ -48,16 +50,16 @@ def startAdventure(spaceship, background):
     print("\n\033[92mTeam:\033[0m Aircraft is ready to launch.")
     time.sleep(1)
     print("\033[92mTeam:\033[0m Let's get to business!")
-    time.sleep(3)
-    Sound("Media\countdown.mp3", 10, False).play()
-    time.sleep(1.5)
-    for i in sorted(list(range(1, 11)), reverse=True):
-        print("\033[92mTeam:\033[0m " + str(i))
-        time.sleep(1)
-    print("LAUNCH!!!")
+    # time.sleep(3)
+    # Sound("Media\countdown.mp3", 10, False).play()
+    # time.sleep(1.5)
+    # for i in sorted(list(range(1, 11)), reverse=True):
+    #     print("\033[92mTeam:\033[0m " + str(i))
+    #     time.sleep(1)
+    # print("LAUNCH!!!")
     spaceship.in_space = True
-    Sound("Media\Launch.mp3", 5, False).play()
-    time.sleep(5)
+    # Sound("Media\Launch.mp3", 5, False).play()
+    # time.sleep(5)
 
     planet = Planet()
 
