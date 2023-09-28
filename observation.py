@@ -311,7 +311,7 @@ class Observation:
         if number == 2:
             time.sleep(2)
             print(f"\nYou recieved a gift from {alienName}.")
-            spaceship.score += random.randrange(50, 150, 20)
+            spaceship.score += random.randrange(50, 150, 10)
             spaceship.inventory.append(f"Alien gift")
 
         time.sleep(2)
