@@ -187,7 +187,7 @@ class Spying:
 
         score = random.randrange(10, 150, 10)
         spaceship.score += score
-        print(f"\nYour score has been increased with {score} to {spaceship.score}.")
+        print(f"Your score has been increased with {score} to {spaceship.score}.")
 
         time.sleep(4)
         spaceship.DisplayStatus()

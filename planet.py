@@ -32,7 +32,7 @@ class Planet:
 
         elif spaceship.fuel <=50:
             time.sleep(2)
-            print("\nYour fuel is running low!")
+            print("\n\033[38;5;9mYour fuel is running low!\033[0m")
             spaceship.DisplayStatus()
 
         time.sleep(3)
@@ -219,13 +219,26 @@ class Planet:
             observation = Observation()
             observation.observation(spaceship, self.name)
 
-        elif option == "e" and self.counter > 3:
-            print(f"\nYou have chosen to go back to the spaceship and go to another planet.")
-            self.on_planet = False
-
-        elif option == "f" and spaceship.health < 50:
-            print(f"\nYou have chosen to go repair the damage to the spaceship.")
-            spaceship.repair()
+        elif self.counter > 3:
+            if option == "e":
+                print(f"\nYou have chosen to go back to the spaceship and go to another planet.")
+                self.on_planet = False
+            elif spaceship.health < 50 and "Repair kit" in spaceship.inventory and option == "f":
+                print(f"\nYou have chosen to repair your spaceship.")
+                spaceship.repair()
+            elif spaceship.fuel < 50 and "Fuel can" in spaceship.inventory and (option == "f" or option == "g"):
+                print(f"\nYou have chosen to refuel your spaceship.")
+                spaceship.refuel()
+        elif spaceship.health < 50 and "Repair kit" in spaceship.inventory:
+            if option == "e":
+                print(f"\nYou have chosen to go repair the damage to the spaceship.")
+                spaceship.repair()
+            elif spaceship.fuel < 50 and "Fuel can" in spaceship.inventory and option == "f":
+                print(f"\nYou have chosen to refuel your spaceship.")
+                spaceship.refuel()
+        elif spaceship.fuel < 50 and "Fuel can" in spaceship.inventory and option == "e":
+            print(f"\nYou have chosen to refuel your spaceship.")
+            spaceship.refuel()
         
         else:
             self.counter -= 1

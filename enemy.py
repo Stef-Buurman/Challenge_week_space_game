@@ -39,7 +39,7 @@ class Enemy:
 
         try:
             inp = inputimeout(prompt=inpString, timeout=timeout)
-            if char != inp:
+            if char.lower() != inp.lower():
                 inp = False
                 print("\nYou dodged right into the attack of the enemy!")
                 time.sleep(1.5)

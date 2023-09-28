@@ -120,8 +120,8 @@ class Combat:
             )
             answer = ""
             while answer != "b" and answer != "a":
-                answer = input("Do you want to attack the spaceship? \nA: Yes\nB: No \n")
-                if answer.lower() == "b":
+                answer = input("Do you want to attack the spaceship? \nA: Yes\nB: No \n").lower()
+                if answer == "b":
                     return
             time.sleep(2)
         else:
