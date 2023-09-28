@@ -171,6 +171,17 @@ def end(spaceship, background):
 
 
 def game_over(background):
+    game_over1 = """
+  ____    _    __  __ _____    _____     _______ ____ """
+    game_over2 = """
+ / ___|  / \  |  \/  | ____|  / _ \ \   / / ____|  _ \ """
+    game_over3 = """
+| |  _  / _ \ | |\/| |  _|   | | | \ \ / /|  _| | |_) | """
+    game_over4 = """
+| |_| |/ ___ \| |  | | |___  | |_| |\ V / | |___|  _ < """
+    game_over5 = """
+ \____/_/   \_\_|  |_|_____|  \___/  \_/  |_____|_| \_\ """
+    
     background.stop()
     background = Sound("Media\YouDiedBackground.mp3", 17, False).play()
     Sound("Media\GameOver.mp3", 17, False).play()
@@ -179,6 +190,17 @@ def game_over(background):
         print("\n")
         time.sleep(1)
     try:
+        print(game_over1, end="")
+        time.sleep(1)
+        print(game_over2, end="")
+        time.sleep(1)
+        print(game_over3, end="")
+        time.sleep(1)
+        print(game_over4, end="")
+        time.sleep(1)
+        print(game_over5, end="")
+        time.sleep(1)
+
         inputimeout(prompt="\n\n\nEnter any key to exit: ", timeout=216)
     except TimeoutOccurred:
         print("")
