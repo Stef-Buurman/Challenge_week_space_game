@@ -40,14 +40,15 @@ def intro(background):
         "\033[92mTeam:\033[0m Your task is to find information about space and return with everything in one peace."
     )
     Sound("Media\Door.mp3", 7, False).play()
-    time.sleep(7)
+    time.sleep(9)
     return spaceship
 
 
 def startAdventure(spaceship, background):
     print("\n\033[92mTeam:\033[0m Aircraft is ready to launch.")
-    time.sleep(0.5)
+    time.sleep(1)
     print("\033[92mTeam:\033[0m Let's get to business!")
+    time.sleep(3)
     Sound("Media\countdown.mp3", 10, False).play()
     time.sleep(1.5)
     for i in sorted(list(range(1, 11)), reverse=True):
@@ -60,7 +61,7 @@ def startAdventure(spaceship, background):
 
     planet = Planet()
 
-    while spaceship.in_space == True:
+    while spaceship.in_space == True and spaceship.game_over == False:
         planet.select_planet(spaceship)
 
         if spaceship.in_space == True:
@@ -73,7 +74,7 @@ def startAdventure(spaceship, background):
             planet.arrival()
             time.sleep(3)
 
-        while planet.on_planet == True:
+        while planet.on_planet == True and spaceship.game_over == False:
             planet.select_activity_on_planet(spaceship)
 
     if spaceship.game_over == True:
