@@ -446,7 +446,7 @@ class Observation:
                 spaceship.inventory.append(f"{creature_name} documentation")
         else:
             time.sleep(2)
-            input(f"\nType your documentation of planet: {planet}: ")
+            input(f"\nType your documentation of planet {planet}: ")
             time.sleep(2)
             if f"{planet} documentation" not in spaceship.inventory:
                 print(f"\nAdded to inventory: {planet} documentation")
