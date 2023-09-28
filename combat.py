@@ -248,7 +248,9 @@ class Combat:
                         f"Your score has been increased with {dropped_item['value']} to {spaceship.score}."
                     )
                 spaceship.DisplayStatus()
+                time.sleep(5)
             else:
                 print(
                     f"\nUnfortunately you skipped the item worth: {dropped_item['value']} points."
                 )
+                time.sleep(2)            

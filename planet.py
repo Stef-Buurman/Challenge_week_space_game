@@ -11,6 +11,7 @@ class Planet:
         self.name = ""
         self.on_planet = False
         self.counter = 0
+        self.observation = Observation()
         
     def arrival(self):
         print(f"\nYou have arrived on planet {self.name}.")
@@ -216,8 +217,7 @@ class Planet:
 
         elif option == "d":
             print(f"\nYou have chosen to {self.planet_activities[3]['description'].lower()}")
-            observation = Observation()
-            observation.observation(spaceship, self.name)
+            self.observation.observation(spaceship, self.name)
 
         elif self.counter > 3:
             if option == "e":
