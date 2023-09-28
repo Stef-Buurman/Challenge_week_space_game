@@ -59,14 +59,16 @@ class Exploration:
                 time.sleep(3)
 
                 spaceship.inventory.append(found_item["name"])
-                spaceship.score += found_item["value"]
+                if found_item["name"] != "Fuel can":
+                    spaceship.score += found_item["value"]
                 
                 print(
                     f"\nThe following item has been added to your inventory: {found_item['name']}."
                 )
-                print(
-                    f"Your score has been increased with {found_item['value']} to {spaceship.score}."
-                )
+                if found_item["name"] != "Fuel can":
+                    print(
+                        f"Your score has been increased with {found_item['value']} to {spaceship.score}."
+                    )
                 spaceship.DisplayStatus()
             else:
                 print(

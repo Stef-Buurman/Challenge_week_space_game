@@ -32,7 +32,7 @@ class Enemy:
     
     def attack(self, spaceship):
         char = random.choice(string.ascii_letters + string.digits)
-        inpString = f"\nFAST, type '{char.lower()}'"
+        inpString = f"\nFAST, type '{char.lower()}': "
         timeout = random.randrange(1, 4)
         
         try:

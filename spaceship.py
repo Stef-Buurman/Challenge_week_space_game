@@ -5,12 +5,13 @@ import time
 class Spaceship:
     def __init__(self, name):
         self.userName = name
-        self.fuel = 100
+        self.fuel = 20
         self.health = 100
-        self.inventory = ["Repair kit", "Sword"]
+        self.inventory = ["Repair kit", "Fuel can", "Sword"]
         self.score = 0
         self.in_space = False
         self.counter = 0
+        self.game_over = False
 
     def DisplayStatus(self):
         print(f"\n{self.userName}'s Status:")
@@ -28,9 +29,7 @@ class Spaceship:
         if damage == 0:
             print("\nYou are lucky this time, you had no damage from the enemy attack.")
         elif self.health <= 0:
-            Sound("Media\GameOver.mp3", 17, False).play()
-            print("\n\n\nYou died...")
-            time.sleep(17)
+            self.game_over()
         else:
             Sound("Media\DamageGotten.mp3", 2, False).play()
             print(f"\nYou got {damage} damage from the enemy attack.")
@@ -51,3 +50,4 @@ class Spaceship:
             print("You don't have a repair kit so you cannot repair your ship!")
             print("You can find them by fighting aliens or exploring planets.")
             time.sleep(5)
+        

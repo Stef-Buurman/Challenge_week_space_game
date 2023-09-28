@@ -106,31 +106,37 @@ class Combat:
     ]
 
     def inCombatShips(self, spaceship):
-        rand = random.randint(0, 6)
+        rand = random.randint(0, 6) 
         if rand == 0:
             print(
-                "\nYou encounter a spaceship which doesn't seem to be interested in combat."
+                "\nYou encounter the spaceship while it gets easier on the approach."
             )
             print("The spaceship flees and cannot be stopped.")
             time.sleep(2)
             return
         elif rand == 1 or rand == 4 or rand == 6:
             print(
-                "\nThe spaceship is aware of your existence but does not see you as a threat."
+                "\nThe spaceship is not intrested in starting the attack."
             )
+            answer = ""
+            while answer != "b" or answer != "a":
+                answer = input("Do you want to attack the spaceship? \nA: Yes\nB: No \n")
+                if answer.lower() == "b":
+                    return
+            time.sleep(2)
         else:
             print(
-                "\nThe spaceship is aware of your existence and instantly decides to start the attack."
+                "\nThe spaceship starts the attack on your ship!"
             )
             time.sleep(3)
             self.enemy.attack(spaceship)
+            time.sleep(1)
 
-        time.sleep(5)
         enemiesDied = False
         while enemiesDied == False:
             enemiesDied = self.attackShips()
             if enemiesDied == True:
-                self.drop_rand_item(spaceship)
+                self.drop_rand_item(spaceship, True)
                 break
             time.sleep(1)
             self.enemyShip.attack(spaceship)
@@ -158,13 +164,18 @@ class Combat:
             return self.enemyShip.getDamage(attacks[2]["damage"])
 
     def inCombatPlanet(self, spaceship):
-        rand = random.randint(0, 2)
+        rand = random.randint(0, 3)
         if rand == 0:
             print("\nThe aliens still have no idea you're near them.")
         elif rand == 1:
             print(
                 "\nThe aliens see you approaching but don't decide to start the attack."
             )
+        elif rand == 2:
+            print(
+                "\nThe aliens see you approach them and see you as treath, so they run away."
+            )
+            print("The alien flees and cannot be stopped.")
         else:
             print(
                 "\nThe aliens see you approaching as threat and decide to start the attack."
@@ -201,24 +212,30 @@ class Combat:
             time.sleep(1)
             return self.enemy.getDamage(attacks[2]["damage"])
 
-    def drop_rand_item(self, spaceship):
+    def drop_rand_item(self, spaceship, isShip = False):
         if random.randint(0, 5) % 2 == 1:
             time.sleep(3)
             dropped_item = random.choice(alien_items)
-            print(f"\nThe alien dropped the following item: {dropped_item['name']}.")
+            if isShip:
+                print(f"\nThe spaceship dropped the following item: {dropped_item['name']}.")
+            else:
+                print(f"\nThe alien dropped the following item: {dropped_item['name']}.")
             alien_items.remove(dropped_item)
             inp = input("Type 'a' to pick up the item: ")
             if inp.lower() == "a":
                 time.sleep(3)
 
                 spaceship.inventory.append(dropped_item["name"])
-                spaceship.score += dropped_item["value"]
+                if dropped_item["name"] != "Fuel can":
+                    spaceship.score += dropped_item["value"]
+                
                 print(
                     f"\nThe following item has been added to your inventory: {dropped_item['name']}."
                 )
-                print(
-                    f"Your score has been increased with {dropped_item['value']} to {spaceship.score}."
-                )
+                if dropped_item["name"] != "Fuel can":
+                    print(
+                        f"Your score has been increased with {dropped_item['value']} to {spaceship.score}."
+                    )
                 spaceship.DisplayStatus()
             else:
                 print(

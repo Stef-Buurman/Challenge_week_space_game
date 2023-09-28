@@ -3,6 +3,7 @@ import time
 from exploration import Exploration
 from combat import Combat
 from observation import Observation
+from sound import Sound
 
 class Planet:       
     def __init__(self):
@@ -16,6 +17,35 @@ class Planet:
     def departure(self):
         print(f"\nYou are leaving planet {self.name}.")
         self.name = "Earth"
+    
+    def leave(self, spaceship):
+        spaceship.fuel -= 20
+        if spaceship.fuel <= 0:
+            Sound("Media\PowerDownAlarm.mp3", 14, False).play()
+            print("\nTHE THANK IS EMPTY!!!")
+            Sound("Media\EmptyThank.mp3", 16, False).play()
+            spaceship.in_space = False
+            spaceship.game_over = True
+            time.sleep(10)
+            return
+
+        elif spaceship.fuel <=50:
+            time.sleep(2)
+            print("\nYour fuel is running low!")
+            spaceship.DisplayStatus()
+
+        time.sleep(3)
+        number = random.randint(0, 2)
+        if number == 0 or number == 2:
+            print("\nThere is another spaceship which is approaching your location.")
+            # if random.randint(0, 5) % 2 == 1:
+            #     time.sleep(3)
+            #     print("The spaceship is getting too close for comfort and now starts attacking you!")
+            #     time.sleep(3)
+            combat = Combat()
+            combat.inCombatShips(spaceship)
+            # else:
+            #     print("The spaceship leaves you alone and is not wanting to start combat.")
 
     all_planets = [
     {
@@ -100,7 +130,7 @@ class Planet:
         if spaceship.counter > 3:
             input_string += f"\nD: Earth: Go back to planet earth and complete the mission."
 
-        spaceship.counter = spaceship.counter + 1
+        spaceship.counter += 1
         
         option = input(input_string + "\n").lower()
          
@@ -130,6 +160,11 @@ class Planet:
         elif option == "d" and spaceship.counter > 3:
             print(f"\nYou have chosen to go back to planet earth and complete the mission.")
             spaceship.in_space = False
+        
+        else:
+            spaceship.counter -= 1
+            print("\nThis is not an option")
+            self.select_planet(spaceship)
             
     def select_activity_on_planet(self, spaceship):
 
@@ -143,7 +178,7 @@ class Planet:
         if self.counter > 3:
             input_string += f"\nE: Return to spaceship: Go back to the spaceship and go to another planet."
 
-        self.counter = self.counter + 1
+        self.counter += 1
 
         option = input(input_string + "\n").lower()
         
@@ -170,3 +205,8 @@ class Planet:
         elif option == "e" and self.counter > 3:
             print(f"\nYou have chosen to go back to the spaceship and go to another planet.")
             self.on_planet = False
+        
+        else:
+            self.counter -= 1
+            print("\nThis is not an option")
+            self.select_activity_on_planet(spaceship)
