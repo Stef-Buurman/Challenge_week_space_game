@@ -12,7 +12,10 @@ class Sound:
     def play(self):
         pygame.mixer.init()
         self.soundPlayer = pygame.mixer.Sound(self.sound)
-        self.soundPlayer.play()
+        if self.background:
+            self.soundPlayer.play(10)
+        else:
+            self.soundPlayer.play()
         if self.background and self.soundTime > 0:
             Timer(self.soundTime, self.soundPlayer.stop()).start()
     
