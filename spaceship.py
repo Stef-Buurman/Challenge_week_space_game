@@ -35,7 +35,7 @@ class Spaceship:
             print(f"\nYou got {damage} damage from the enemy attack.")
         self.DisplayStatus()
     
-    def Repair(self):
+    def repair(self):
         if self.health == 100:
             print("\nYour ship is already in the best state, you cannot use a repair kit.")
         elif "Repair kit" in self.inventory:

@@ -3,6 +3,7 @@ import time
 from exploration import Exploration
 from combat import Combat
 from observation import Observation
+from spying import Spying
 from sound import Sound
 
 class Planet:       
@@ -178,6 +179,9 @@ class Planet:
         if self.counter > 3:
             input_string += f"\nE: Return to spaceship: Go back to the spaceship and go to another planet."
 
+        if spaceship.health < 50:
+            input_string += f"\nF: Repair the spaceship: Go repair the damage to the spaceship."
+
         self.counter += 1
 
         option = input(input_string + "\n").lower()
@@ -194,8 +198,12 @@ class Planet:
             print(f"\nYou have chosen to {self.planet_activities[1]['description'].lower()}")
             combat = Combat()
             combat.inCombatPlanet(spaceship)
+
         elif option == "c":
             print(f"\nYou have chosen to {self.planet_activities[2]['description'].lower()}")
+            my_spy = Spying(self.name)
+            my_spy.spy()
+            my_spy.report_findings(spaceship)
 
         elif option == "d":
             print(f"\nYou have chosen to {self.planet_activities[3]['description'].lower()}")
@@ -205,6 +213,10 @@ class Planet:
         elif option == "e" and self.counter > 3:
             print(f"\nYou have chosen to go back to the spaceship and go to another planet.")
             self.on_planet = False
+
+        elif option == "f" and spaceship.health < 50:
+            print(f"\nYou have chosen to go repair the damage to the spaceship.")
+            spaceship.repair()
         
         else:
             self.counter -= 1
