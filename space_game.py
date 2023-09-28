@@ -48,12 +48,12 @@ def startAdventure(spaceship, background):
     print("\n\033[92mTeam:\033[0m Aircraft is ready to launch.")
     time.sleep(0.5)
     print("\033[92mTeam:\033[0m Let's get to business!")
-    # Sound("Media\countdown.mp3", 10, False).play()
-    # time.sleep(1.5)
-    # for i in sorted(list(range(1, 11)), reverse=True):
-    #     print("\033[92mTeam:\033[0m " + str(i))
-    #     time.sleep(1)
-    # print("LAUNCH!!!")
+    Sound("Media\countdown.mp3", 10, False).play()
+    time.sleep(1.5)
+    for i in sorted(list(range(1, 11)), reverse=True):
+        print("\033[92mTeam:\033[0m " + str(i))
+        time.sleep(1)
+    print("LAUNCH!!!")
     spaceship.in_space = True
     Sound("Media\Launch.mp3", 5, False).play()
     time.sleep(5)

@@ -179,8 +179,23 @@ class Planet:
         if self.counter > 3:
             input_string += f"\nE: Return to spaceship: Go back to the spaceship and go to another planet."
 
-        if spaceship.health < 50:
-            input_string += f"\nF: Repair the spaceship: Go repair the damage to the spaceship."
+            if spaceship.health < 50 and "Repair kit" in spaceship.inventory:
+                input_string += f"\nF: Repair the spaceship: Go repair the damage to the spaceship."
+
+                if spaceship.fuel < 50 and "Fuel can" in spaceship.inventory:
+                    input_string += f"\nG: Refuel the spaceship."
+
+            elif spaceship.fuel < 50 and "Fuel can" in spaceship.inventory:
+                input_string += f"\nF: Refuel the spaceship."
+
+        elif spaceship.health < 50 and "Repair kit" in spaceship.inventory:
+            input_string += f"\nE: Repair the spaceship: Go repair the damage to the spaceship."
+
+            if spaceship.fuel < 50 and "Fuel can" in spaceship.inventory:
+                input_string += f"\nF: Refuel the spaceship."
+
+        elif spaceship.fuel < 50 and "Fuel can" in spaceship.inventory:
+            input_string += f"\nE: Refuel the spaceship."
 
         self.counter += 1
 

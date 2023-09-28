@@ -5,7 +5,7 @@ import time
 class Spaceship:
     def __init__(self, name):
         self.userName = name
-        self.fuel = 20
+        self.fuel = 100
         self.health = 100
         self.inventory = ["Repair kit", "Fuel can", "Sword"]
         self.score = 0
