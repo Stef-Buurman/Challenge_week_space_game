@@ -119,21 +119,21 @@ class Combat:
                 "\nThe spaceship is not intrested in starting the attack."
             )
             answer = ""
-            while answer != "b" or answer != "a":
+            while answer != "b" and answer != "a":
                 answer = input("Do you want to attack the spaceship? \nA: Yes\nB: No \n")
                 if answer.lower() == "b":
                     return
             time.sleep(2)
         else:
             print(
-                "\nThe spaceship starts the attack on your ship!"
+                "\nThe spaceship is getting too close for comfort and now starts attacking you!"
             )
             time.sleep(3)
             self.enemy.attack(spaceship)
             time.sleep(1)
 
         enemiesDied = False
-        while enemiesDied == False:
+        while enemiesDied == False and spaceship.game_over == False:
             enemiesDied = self.attackShips()
             if enemiesDied == True:
                 self.drop_rand_item(spaceship, True)
@@ -162,6 +162,8 @@ class Combat:
             print(f"\nYou used {attacks[2]['name']}")
             time.sleep(1)
             return self.enemyShip.getDamage(attacks[2]["damage"])
+        else:
+            return False
 
     def inCombatPlanet(self, spaceship):
         rand = random.randint(0, 3)
@@ -176,6 +178,8 @@ class Combat:
                 "\nThe aliens see you approach them and see you as treath, so they run away."
             )
             print("The alien flees and cannot be stopped.")
+            time.sleep(5)
+            return
         else:
             print(
                 "\nThe aliens see you approaching as threat and decide to start the attack."
@@ -183,10 +187,10 @@ class Combat:
             time.sleep(3)
             self.enemy.attack(spaceship)
         time.sleep(5)
-        enemiesDied = False
-        while enemiesDied == False:
-            enemiesDied = self.attackPlanet()
-            if enemiesDied == True:
+        enemies_died = False
+        while enemies_died == False and spaceship.game_over == False:
+            enemies_died = self.attackPlanet()
+            if enemies_died == True:
                 self.drop_rand_item(spaceship)
                 break
             self.enemy.attack(spaceship)
@@ -211,6 +215,8 @@ class Combat:
             print(f"\nYou used {attacks[2]['name']}")
             time.sleep(1)
             return self.enemy.getDamage(attacks[2]["damage"])
+        else:
+            return False
 
     def drop_rand_item(self, spaceship, isShip = False):
         if random.randint(0, 5) % 2 == 1:

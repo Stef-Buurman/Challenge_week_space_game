@@ -3,16 +3,18 @@ import time
 import random
 import string
 from sound import Sound
-sys.path.append('Libraries\inputimeout')
+
+sys.path.append("Libraries\inputimeout")
 import inputimeout
 from inputimeout import inputimeout, TimeoutOccurred
+
 
 class Enemy:
     def __init__(self, ship):
         if ship:
             self.health = random.randrange(20, 66, 5)
         else:
-            self.health = random.randrange(5, 26, 5)
+            self.health = random.randrange(9, 36, 5)
 
     def getDamage(self, damageAmount):
         self.health -= damageAmount
@@ -29,24 +31,26 @@ class Enemy:
             print(f"You did {damageAmount} damage to the enemy.")
             print(f"He still has {self.health} health left.")
             return False
-    
+
     def attack(self, spaceship):
         char = random.choice(string.ascii_letters + string.digits)
         inpString = f"\nFAST, type '{char.lower()}': "
         timeout = random.randrange(1, 4)
-        
+
         try:
             inp = inputimeout(prompt=inpString, timeout=timeout)
             if char != inp:
                 inp = False
                 print("\nYou dodged right into the attack of the enemy!")
-                time.sleep(1)
+                time.sleep(1.5)
                 spaceship.RandomDamage(True)
+                time.sleep(3)
         except TimeoutOccurred:
             print("\nYou were too late to dodge the attack!")
             inp = False
-            time.sleep(1)
+            time.sleep(1.5)
             spaceship.RandomDamage(True)
-        
+            time.sleep(3)
+
         if inp != False:
             print("\nGood job, you dodged the attack and have no damage.")

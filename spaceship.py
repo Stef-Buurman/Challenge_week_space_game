@@ -6,7 +6,7 @@ class Spaceship:
     def __init__(self, name):
         self.userName = name
         self.fuel = 100
-        self.health = 100
+        self.health = 10
         self.inventory = ["Repair kit", "Fuel can", "Sword"]
         self.score = 0
         self.in_space = False
@@ -29,11 +29,13 @@ class Spaceship:
         if damage == 0:
             print("\nYou are lucky this time, you had no damage from the enemy attack.")
         elif self.health <= 0:
-            self.game_over()
+            self.game_over = True
         else:
             Sound("Media\DamageGotten.mp3", 2, False).play()
+            time.sleep(2)
             print(f"\nYou got {damage} damage from the enemy attack.")
-        self.DisplayStatus()
+            time.sleep(2)
+            self.DisplayStatus()
     
     def repair(self):
         if self.health == 100:

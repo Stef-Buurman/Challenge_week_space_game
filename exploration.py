@@ -2,39 +2,30 @@ import random
 import time
 from items import alien_items
 
+
 class Exploration:
     directions = [
-    {
-        "name": "North"
-    }, 
-    {
-        "name": "East"
-    },
-    {
-        "name": "South"
-    },
-    {
-        "name": "West"
-    }
-]
-
+        {"name": "North"},
+        {"name": "East"},
+        {"name": "South"},
+        {"name": "West"},
+    ]
 
     def exploration(self):
-
-        abc = ["A","B","C","D"]
+        abc = ["A", "B", "C", "D"]
 
         input_string = f"\nWhat direction do you want to go:"
-            
+
         for i, direction in enumerate(self.directions):
             input_string += f"\n{abc[i]}: {direction['name']}"
-        
+
         option = input(input_string + "\n").lower()
-        
+
         time.sleep(2)
 
         if option == "a":
             print(f"\nYou have decided to go to the {self.directions[0]['name']}.")
-        
+
         elif option == "b":
             print(f"\nYou have decided to go to the {self.directions[1]['name']}.")
 
@@ -46,9 +37,9 @@ class Exploration:
 
     def research(self, spaceship):
         time.sleep(3)
-        
+
         number = random.randint(0, 2)
-        
+
         if number == 1:
             found_item = random.choice(alien_items)
             print(f"\nYou found the following item: {found_item['name']}.")
@@ -61,7 +52,7 @@ class Exploration:
                 spaceship.inventory.append(found_item["name"])
                 if found_item["name"] != "Fuel can":
                     spaceship.score += found_item["value"]
-                
+
                 print(
                     f"\nThe following item has been added to your inventory: {found_item['name']}."
                 )
@@ -69,12 +60,15 @@ class Exploration:
                     print(
                         f"Your score has been increased with {found_item['value']} to {spaceship.score}."
                     )
+                time.sleep(4)
                 spaceship.DisplayStatus()
+                time.sleep(4)
             else:
                 print(
                     f"\nUnfortunately you skipped the item worth: {found_item['value']} points."
                 )
+                time.sleep(2)
         else:
             print("\nYou have found nothing. Try again.")
-        
+
         time.sleep(3)

@@ -39,14 +39,8 @@ class Planet:
         number = random.randint(0, 2)
         if number == 0 or number == 2:
             print("\nThere is another spaceship which is approaching your location.")
-            # if random.randint(0, 5) % 2 == 1:
-            #     time.sleep(3)
-            #     print("The spaceship is getting too close for comfort and now starts attacking you!")
-            #     time.sleep(3)
             combat = Combat()
             combat.inCombatShips(spaceship)
-            # else:
-            #     print("The spaceship leaves you alone and is not wanting to start combat.")
 
     all_planets = [
     {

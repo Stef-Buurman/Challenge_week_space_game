@@ -313,7 +313,7 @@ class Observation:
         time.sleep(4)
 
     def inspect(self, spaceship, planet):
-        print(f"\nYou are inspecting the place you currently are on {planet}")
+        print(f"\nInspecting current place on {planet}...")
         loading(10)
         input(f"\nType your documentation of {planet}: ")
         time.sleep(2)
@@ -325,7 +325,7 @@ class Observation:
         time.sleep(4)
 
     def admire_caves(self, spaceship, planet):
-        print(f"\nYou are admiring the caves found on {planet}")
+        print(f"\nAdmiring caves found on {planet}...")
         loading(10)
         time.sleep(1)
         number = random.randint(0, 5)
@@ -356,7 +356,7 @@ class Observation:
         time.sleep(4)
     
     def admire_surroundings(self, spaceship, planet):
-        print(f"\nYou are admiring your surroundings on {planet}")
+        print(f"\nAdmiring surroundings on {planet}...")
         loading(10)
         time.sleep(1)
         number = random.randint(0, 5)
