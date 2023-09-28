@@ -2,6 +2,7 @@ import time
 import random
 from enemy import Enemy
 from items import alien_items
+from sound import Sound
 
 
 class Combat:
@@ -234,6 +235,7 @@ class Combat:
             if inp.lower() == "a":
                 time.sleep(3)
 
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(dropped_item["name"])
                 if dropped_item["name"] != "Fuel can" and dropped_item["name"] != "Repair kit":
                     spaceship.score += dropped_item["value"]

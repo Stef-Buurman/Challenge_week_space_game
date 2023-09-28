@@ -2,6 +2,7 @@ import random
 import time
 from items import alien_items
 from loading import loading
+from sound import Sound
 
 class Exploration:
     directions = [
@@ -53,6 +54,7 @@ class Exploration:
             if inp.lower() == "a":
                 time.sleep(3)
 
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(found_item["name"])
                 if found_item["name"] != "Fuel can" and found_item["name"] != "Repair kit":
                     spaceship.score += found_item["value"]

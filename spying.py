@@ -1,6 +1,7 @@
 import random
 import time
 from loading import loading
+from sound import Sound
 
 class Spying:
     def __init__(self, location):
@@ -181,6 +182,7 @@ class Spying:
 
         if f"{self.location} spying documentation" not in spaceship.inventory:
             print(f"\nAdded to inventory: {self.location} spying documentation.")
+            Sound("Media\ItemRecieved.mp3", 3).play()
             spaceship.inventory.append(f"{self.location} spying documentation")
         else:
             print(f"\nAdded findings to existing {self.location} spying documentation.")

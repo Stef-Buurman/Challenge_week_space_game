@@ -36,6 +36,7 @@ class Enemy:
                     Sound("Media\DamageDone2.mp3", 2, False).play()
                 print(f"You did {damageAmount} damage to the enemy.")
                 print(f"He still has {self.health} health left.")
+                time.sleep(3)
                 return False
 
     def attack(self, spaceship):
