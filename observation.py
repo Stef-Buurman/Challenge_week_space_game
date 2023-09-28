@@ -302,7 +302,11 @@ class Observation:
         loading(5)
         print(f"\nAdded to inventory: Alien documentation.")
         spaceship.score += random.randrange(0, 80, 10)
-        spaceship.inventory.append(f"Alien documentation.")
+        if f"Alien documentation" not in spaceship.inventory:
+            print(f"\nAdded to inventory: Alien documentation")
+            spaceship.inventory.append(f"Alien documentation")
+        else:
+            print(f"\nAdded documentation to existing Alien documentation.")
         number = random.randint(0, 3)
         if number == 2:
             time.sleep(2)

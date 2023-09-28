@@ -235,13 +235,13 @@ class Combat:
                 time.sleep(3)
 
                 spaceship.inventory.append(dropped_item["name"])
-                if dropped_item["name"] != "Fuel can":
+                if dropped_item["name"] != "Fuel can" and dropped_item["name"] != "Repair kit":
                     spaceship.score += dropped_item["value"]
                 
                 print(
                     f"\nThe following item has been added to your inventory: {dropped_item['name']}."
                 )
-                if dropped_item["name"] != "Fuel can":
+                if dropped_item["name"] != "Fuel can" and dropped_item["name"] != "Repair kit":
                     print(
                         f"Your score has been increased with {dropped_item['value']} to {spaceship.score}."
                     )
