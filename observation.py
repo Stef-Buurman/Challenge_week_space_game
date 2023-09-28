@@ -301,10 +301,9 @@ class Observation:
     def interactionItem(self, spaceship, alienName):
         print(f"\nYou are documenting the information gotten from {alienName}.")
         loading(5)
-        print(f"\nAdded to inventory: Alien documentation.")
         spaceship.score += random.randrange(10, 80, 10)
         if f"Alien documentation" not in spaceship.inventory:
-            print(f"\nAdded to inventory: Alien documentation")
+            print(f"\nAdded to inventory: Alien documentation.")
             Sound("Media\ItemRecieved.mp3", 3).play()
             spaceship.inventory.append(f"Alien documentation")
         else:
