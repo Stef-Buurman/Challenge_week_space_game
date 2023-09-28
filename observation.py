@@ -301,13 +301,13 @@ class Observation:
         print(f"\nYou are documenting the information gotten from {alienName}.")
         loading(5)
         print(f"\nAdded to inventory: Alien documentation.")
-        spaceship.score += random.randrange(0, 80, 10)
+        spaceship.score += random.randrange(10, 80, 10)
         spaceship.inventory.append(f"Alien documentation.")
         number = random.randint(0, 3)
         if number == 2:
             time.sleep(2)
             print(f"\nYou recieved a gift from {alienName}.")
-            spaceship.score += random.randrange(50, 150, 20)
+            spaceship.score += random.randrange(50, 150, 10)
             spaceship.inventory.append(f"Alien gift")
 
         time.sleep(2)

@@ -23,7 +23,7 @@ class Spaceship:
 
     def RandomDamage(self, notDodgable = False):
         if notDodgable == True:
-            damage = random.randrange(1, 10)
+            damage = random.randrange(5, 10)
         else:
             damage = random.randrange(0, 10)
         self.health -= damage

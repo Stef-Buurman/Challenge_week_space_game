@@ -185,7 +185,7 @@ class Spying:
         else:
             print(f"\nAdded findings to existing {self.location} spying documentation.")
 
-        score = random.randrange(10, 150, 10)
+        score = random.randrange(10, 80, 10)
         spaceship.score += score
         print(f"Your score has been increased with {score} to {spaceship.score}.")
 
