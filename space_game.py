@@ -97,47 +97,47 @@ def end(spaceship, background):
 
     time.sleep(5)
     if spaceship.score >= 1000:
-        print(f"\033[94mYou:\033[0m This is {spaceship.userName} from the space mission. Do you read me?")
+        print(f"\n\033[94mYou:\033[0m This is {spaceship.userName} from the space mission. Do you read me?")
         time.sleep(5)
         
-        print(f"\n\033[92mTeam:\033[0m Loud and clear, {spaceship.userName}! We've been anxiously awaiting your return. Did you complete the mission successfully?")
+        print(f"\033[92mTeam:\033[0m Loud and clear, {spaceship.userName}! We've been anxiously awaiting your return. Did you complete the mission successfully?")
         time.sleep(5)
 
         print(f"\033[94mYou:\033[0m It's a success! I've collected a wealth of data about space and made some fascinating discoveries related to extraterrestrial life.")
         time.sleep(5)
 
-        print(f"\n\033[92mTeam:\033[0m That's fantastic, {spaceship.userName}! We can't wait to hear all the details. You're in for quite the debriefing. How are you feeling after your solo journey?")
+        print(f"\033[92mTeam:\033[0m That's fantastic, {spaceship.userName}! We can't wait to hear all the details. You're in for quite the debriefing. How are you feeling after your solo journey?")
         time.sleep(5)
 
-        print(f"\033[94mYou:\033[0m It's been an incredible experience, and I can't wait to share what I've learned with the world. Returning to Earth is a surreal feeling.")
+        print(f"\033[94mYou:\033[0m It's been an incredible experience, and I can't wait to share what I've learned with the world.")
         time.sleep(5)
 
-        print(f"\033[94mYou:\033[0m My re-entry and landing systems are all green. I'm set to initiate re-entry, and if all goes according to plan, I'll touch down in the designated recovery area. All the samples and data are securely stored and should remain intact.")
+        print(f"\033[94mYou:\033[0m My re-entry and landing systems were all green and everything went according to plan. I touched down in the designated recovery area. All the samples and data are securely stored and should remain intact.")
         time.sleep(5)
         
-        print(f"\n\033[92mTeam:\033[0m That's reassuring, {spaceship.userName}. We're ready to have the recovery team standing by to welcome you back. You've made history as a solo explorer, and your discoveries will reshape our understanding of the universe.")
+        print(f"\033[92mTeam:\033[0m That's reassuring, {spaceship.userName}. We're ready to have the recovery team standing by to welcome you back. You've made history as a solo explorer, and your discoveries will reshape our understanding of the universe.")
         time.sleep(5)
         
         print(f"\033[94mYou:\033[0m Thank you. It's been an honor to embark on this solo mission. I can't wait to share my findings and insights with the world. Bringing back a piece of the cosmos with me feels surreal.")
         time.sleep(5)
 
-        print(f"\n\033[92mTeam:\033[0m We'll be counting the minutes until your safe return, {spaceship.userName}. Get ready to make history once you're back on Earth, and we'll see you on the other side.")
+        print(f"\033[92mTeam:\033[0m We have been counting the minutes until your safe return, {spaceship.userName}. Get ready to make history.")
         time.sleep(5)
 
-        print(f"\033[94mYou:\033[0m You can count on it. See you soon. Over and out.")
+        print(f"\033[94mYou:\033[0m You can count on it. Let's do it! Over and out.")
         time.sleep(5)
 
     else:
-        print(f"\033[94mYou:\033[0m This is {spaceship.userName} from the space mission. Do you read me?")
+        print(f"\n\033[94mYou:\033[0m This is {spaceship.userName} from the space mission. Do you read me?")
         time.sleep(5)
         
-        print(f"\n\033[92mTeam:\033[0m Loud and clear, {spaceship.userName}! We've been anxiously awaiting your return. Did you complete the mission successfully?")
+        print(f"\033[92mTeam:\033[0m Loud and clear, {spaceship.userName}! We've been anxiously awaiting your return. Did you complete the mission successfully?")
         time.sleep(5)
         
         print("\033[94mYou:\033[0m No, I couldn't find much, but I hope what I have is helpful.")
         time.sleep(5)
 
-        print(f"\n\033[92mTeam:\033[0m That's unfortunate, {spaceship.userName}.")
+        print(f"\033[92mTeam:\033[0m That's unfortunate, {spaceship.userName}. Better luck next time.")
         time.sleep(5)
 
     for i in sorted(list(range(1, 11))):
