@@ -301,18 +301,25 @@ class Observation:
     def interactionItem(self, spaceship, alienName):
         print(f"\nYou are documenting the information gotten from {alienName}.")
         loading(5)
-        spaceship.score += random.randrange(10, 80, 10)
+        
         if f"Alien documentation" not in spaceship.inventory:
             print(f"\nAdded to inventory: Alien documentation.")
             Sound("Media\ItemRecieved.mp3", 3).play()
             spaceship.inventory.append(f"Alien documentation")
         else:
             print(f"\nAdded documentation to existing Alien documentation.")
+
+        score = random.randrange(10, 80, 10)
+        spaceship.score += score
+        print(f"Your score has been increased with {score} to {spaceship.score}.")
+
         number = random.randint(0, 3)
         if number == 2:
             time.sleep(2)
             print(f"\nYou recieved a gift from {alienName}.")
-            spaceship.score += random.randrange(50, 150, 10)
+            score = random.randrange(50, 150, 10)
+            spaceship.score += score
+            print(f"Your score has been increased with {score} to {spaceship.score}.")
             Sound("Media\ItemRecieved.mp3", 3).play()
             spaceship.inventory.append(f"Alien gift")
 
@@ -333,7 +340,9 @@ class Observation:
         else:
             print(f"\nAdded documentation to existing {planet} inspection documentation.")
 
-        spaceship.score += random.randrange(10, 80, 10)
+        score = random.randrange(10, 80, 10)
+        spaceship.score += score
+        print(f"Your score has been increased with {score} to {spaceship.score}.")
 
         time.sleep(2)
         spaceship.DisplayStatus()
@@ -358,7 +367,6 @@ class Observation:
             time.sleep(2)
             input(f"Type your documentation of {creature_name}: ")
             time.sleep(2)
-            spaceship.score += random.randrange(10, 80, 10)
 
             if (
                 f"{planet} documentation" not in spaceship.inventory
@@ -390,6 +398,10 @@ class Observation:
                 print(f"Added to inventory: {creature_name} documentation.")
                 Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{creature_name} documentation")
+                
+            score = random.randrange(10, 80, 10)
+            spaceship.score += score
+            print(f"Your score has been increased with {score} to {spaceship.score}.")
         else:
             time.sleep(2)
             input(f"\nType your documentation of planet: {planet}: ")
@@ -400,7 +412,9 @@ class Observation:
                 spaceship.inventory.append(f"{planet} documentation")
             else:
                 print(f"\nAdded documentation to existing {planet} documentation.")
-            spaceship.score += random.randrange(10, 80, 10)
+            score = random.randrange(10, 80, 10)
+            spaceship.score += score
+            print(f"Your score has been increased with {score} to {spaceship.score}.")
         time.sleep(2)
         spaceship.DisplayStatus()
         time.sleep(4)
@@ -426,7 +440,6 @@ class Observation:
             time.sleep(2)
             input(f"\nType your documentation of {creature_name}: ")
             time.sleep(2)
-            spaceship.score += random.randrange(10, 80, 10)
 
             if (
                 f"{planet} documentation" not in spaceship.inventory
@@ -458,6 +471,10 @@ class Observation:
                 )
                 Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{creature_name} documentation")
+
+            score = random.randrange(10, 80, 10)
+            spaceship.score += score
+            print(f"Your score has been increased with {score} to {spaceship.score}.")
         else:
             time.sleep(2)
             input(f"\nType your documentation of planet {planet}: ")
@@ -468,7 +485,10 @@ class Observation:
                 spaceship.inventory.append(f"{planet} documentation")
             else:
                 print(f"\nAdded documentation to existing {planet} documentation.")
-            spaceship.score += random.randrange(10, 80, 10)
+            
+            score = random.randrange(10, 80, 10)
+            spaceship.score += score
+            print(f"Your score has been increased with {score} to {spaceship.score}.")
         time.sleep(2)
         spaceship.DisplayStatus()
         time.sleep(4)
