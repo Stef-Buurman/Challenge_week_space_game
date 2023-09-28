@@ -1,7 +1,7 @@
 import random
 import time
 from items import alien_items
-
+from loading import loading
 
 class Exploration:
     directions = [
@@ -40,7 +40,7 @@ class Exploration:
             self.exploration()
 
     def research(self, spaceship):
-        time.sleep(3)
+        loading(5)
 
         number = random.randint(0, 2)
 
