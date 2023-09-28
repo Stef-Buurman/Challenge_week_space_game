@@ -117,7 +117,7 @@ class Combat:
             return
         elif rand == 1 or rand == 4 or rand == 6:
             print(
-                "\nThe spaceship is not intrested in starting the attack."
+                "\nThe spaceship is not interested in starting the attack."
             )
             answer = ""
             while answer != "b" and answer != "a":
