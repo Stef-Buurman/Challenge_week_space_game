@@ -41,8 +41,8 @@ def intro(background):
     print(
         "\033[92mTeam:\033[0m Your task is to collect 1000 points while gathering information about space and extraterrestrial life and return with everything alive."
     )
-    # Sound("Media\Door.mp3", 7, False).play()
-    # time.sleep(9)
+    Sound("Media\Door.mp3", 7, False).play()
+    time.sleep(9)
     return spaceship
 
 
@@ -50,16 +50,16 @@ def startAdventure(spaceship, background):
     print("\n\033[92mTeam:\033[0m Aircraft is ready to launch.")
     time.sleep(1)
     print("\033[92mTeam:\033[0m Let's get to business!")
-    # time.sleep(3)
-    # Sound("Media\countdown.mp3", 10, False).play()
-    # time.sleep(1.5)
-    # for i in sorted(list(range(1, 11)), reverse=True):
-    #     print("\033[92mTeam:\033[0m " + str(i))
-    #     time.sleep(1)
-    # print("LAUNCH!!!")
+    time.sleep(3)
+    Sound("Media\countdown.mp3", 10, False).play()
+    time.sleep(1.5)
+    for i in sorted(list(range(1, 11)), reverse=True):
+        print("\033[92mTeam:\033[0m " + str(i))
+        time.sleep(1)
+    print("LAUNCH!!!")
     spaceship.in_space = True
-    # Sound("Media\Launch.mp3", 5, False).play()
-    # time.sleep(5)
+    Sound("Media\Launch.mp3", 5, False).play()
+    time.sleep(5)
 
     planet = Planet()
 
