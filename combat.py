@@ -126,7 +126,7 @@ class Combat:
             time.sleep(2)
         else:
             print(
-                "\nThe spaceship starts the attack on your ship!"
+                "\nThe spaceship is getting too close for comfort and now starts attacking you!"
             )
             time.sleep(3)
             self.enemy.attack(spaceship)
