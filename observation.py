@@ -1,6 +1,7 @@
 import random
 import time
 from loading import loading
+from sound import Sound
 
 class Observation:
     observation_options = [
@@ -304,6 +305,7 @@ class Observation:
         spaceship.score += random.randrange(10, 80, 10)
         if f"Alien documentation" not in spaceship.inventory:
             print(f"\nAdded to inventory: Alien documentation")
+            Sound("Media\ItemRecieved.mp3", 3).play()
             spaceship.inventory.append(f"Alien documentation")
         else:
             print(f"\nAdded documentation to existing Alien documentation.")
@@ -312,6 +314,7 @@ class Observation:
             time.sleep(2)
             print(f"\nYou recieved a gift from {alienName}.")
             spaceship.score += random.randrange(50, 150, 10)
+            Sound("Media\ItemRecieved.mp3", 3).play()
             spaceship.inventory.append(f"Alien gift")
 
         time.sleep(2)
@@ -326,6 +329,7 @@ class Observation:
 
         if f"{planet} inspection documentation" not in spaceship.inventory:
             print(f"\nAdded to inventory: {planet} inspection documentation")
+            Sound("Media\ItemRecieved.mp3", 3).play()
             spaceship.inventory.append(f"{planet} inspection documentation")
         else:
             print(f"\nAdded documentation to existing {planet} inspection documentation.")
@@ -364,6 +368,7 @@ class Observation:
                 print(
                     f"\nAdded to inventory: {planet} documentation, {creature_name} documentation."
                 )
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{planet} documentation")
                 spaceship.inventory.append(f"{creature_name} documentation")
             elif (
@@ -374,6 +379,7 @@ class Observation:
                 print(
                     f"Added {creature_name} documentation to existing {creature_name} documentation."
                 )
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{planet} documentation")
             elif (
                 f"{planet} documentation" in spaceship.inventory
@@ -383,6 +389,7 @@ class Observation:
                     f"\nAdded {planet} documentation to existing {planet} documentation."
                 )
                 print(f"Added to inventory: {creature_name} documentation.")
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{creature_name} documentation")
         else:
             time.sleep(2)
@@ -390,6 +397,7 @@ class Observation:
             time.sleep(2)
             if f"{planet} documentation" not in spaceship.inventory:
                 print(f"\nAdded to inventory: {planet} documentation")
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{planet} documentation")
             else:
                 print(f"\nAdded documentation to existing {planet} documentation.")
@@ -428,6 +436,7 @@ class Observation:
                 print(
                     f"\nAdded to inventory: {planet} documentation, {creature_name} documentation."
                 )
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{planet} documentation")
                 spaceship.inventory.append(f"{creature_name} documentation")
             elif (
@@ -438,6 +447,7 @@ class Observation:
                 print(
                     f"\nAdded {creature_name} documentation to existing {creature_name} documentation."
                 )
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{planet} documentation")
             elif (
                 f"{planet} documentation" in spaceship.inventory
@@ -447,6 +457,7 @@ class Observation:
                 print(
                     f"\nAdded {planet} documentation to existing {planet} documentation."
                 )
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{creature_name} documentation")
         else:
             time.sleep(2)
@@ -454,6 +465,7 @@ class Observation:
             time.sleep(2)
             if f"{planet} documentation" not in spaceship.inventory:
                 print(f"\nAdded to inventory: {planet} documentation")
+                Sound("Media\ItemRecieved.mp3", 3).play()
                 spaceship.inventory.append(f"{planet} documentation")
             else:
                 print(f"\nAdded documentation to existing {planet} documentation.")
